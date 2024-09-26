@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Calculator</title>
+    <title>YouTube View Prediction Calculator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,12 +15,14 @@
     </style>
 </head>
 <body>
-    <h1>Simple Calculator</h1>
-    <label for="field1">Enter first number:</label>
+    <h1>YouTube View Prediction Calculator</h1>
+    <p>This is a view count approximator for YouTube videos. Enter the information below to predict how many views your video will get. </p>
+    <p>Note that this calculator is not an exact amount, and there are always outliers that do not fit the model.</p>
+    <label for="field1">Enter your retention (average % viewed):</label>
     <input type="number" id="field1" /><br/>
-    <label for="field2">Enter second number:</label>
+    <label for="field2">Enter "How many chose to view":</label>
     <input type="number" id="field2" /><br/>
-    <button onclick="computeSum()">=</button>
+    <button onclick="computeSum()">Estimate Views</button>
     <p>Result: <span id="result"></span></p>
 
     <script>
