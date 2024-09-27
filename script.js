@@ -17,7 +17,7 @@ function computeViews() {
     var views = Math.exp(logViews) - 1;
 
     // Handle potential negative or undefined results
-    if (views < 0 || isNaN(views)) {
+    if (views < 0 || isNaN(views) || !isFinite(views)) {
         document.getElementById('result').innerText = "The calculation resulted in an invalid number of views. Please check your inputs.";
         return;
     }
