@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
     <title>YouTube View Prediction Calculator</title>
     <style>
         body {
@@ -16,23 +16,47 @@
 </head>
 <body>
     <h1>YouTube View Prediction Calculator</h1>
-    <p>This is a view count approximator for YouTube videos. Enter the information below to predict how many views your video will get. </p>
+    <p>This is a view count approximator for YouTube videos. Enter the information below to predict how many views your video will get.</p>
     <p>Note that this calculator is not an exact amount, and there are always outliers that do not fit the model.</p>
-    <label for="field1">Enter your retention (average % viewed):</label>
+    <label for="field1">Enter your retention (average % viewed):</label><br/>
     <input type="number" id="field1" /><br/>
-    <label for="field2">Enter "How many chose to view":</label>
+    <label for="field2">Enter percentage of people who chose to view (did not swipe away):</label><br/>
     <input type="number" id="field2" /><br/>
-    <label for="field3">Enter "Video length":</label>
-    <input type="number" id="field2" /><br/>
-    <button onclick="computeSum()">Estimate Views</button>
+    <label for="field3">Enter video length (in minutes):</label><br/>
+    <input type="number" id="field3" /><br/>
+    <button onclick="computeViews()">Estimate Views</button>
     <p>Predicted views after initial algorithm recommendation spike: <span id="result"></span></p>
 
     <script>
-        function computeSum() {
-            var field1 = parseFloat(document.getElementById('field1').value);
-            var field2 = parseFloat(document.getElementById('field2').value);
-            var result = field1 + field2;
-            document.getElementById('result').innerText = result;
+        function computeViews() {
+            // Retrieve input values and parse them as floats
+            var percentageViewed = parseFloat(document.getElementById('field1').value);
+            var percentageChoseToView = parseFloat(document.getElementById('field2').value);
+            var videoLength = parseFloat(document.getElementById('field3').value);
+
+            // Check for valid inputs
+            if (isNaN(percentageViewed) || isNaN(percentageChoseToView) || isNaN(videoLength)) {
+                document.getElementById('result').innerText = "Please enter valid numbers in all fields.";
+                return;
+            }
+
+            // Calculate Log_Views using the provided formula
+            var logViews = -7.0629 + (0.0488 * percentageViewed) + (0.1816 * percentageChoseToView) + (0.0636 * videoLength);
+
+            // Calculate Views
+            var views = Math.exp(logViews) - 1;
+
+            // Handle potential negative or undefined results
+            if (views < 0 || isNaN(views)) {
+                document.getElementById('result').innerText = "The calculation resulted in an invalid number of views. Please check your inputs.";
+                return;
+            }
+
+            // Format the result to an integer with commas
+            var viewsFormatted = Math.round(views).toLocaleString();
+
+            // Display the result
+            document.getElementById('result').innerText = viewsFormatted;
         }
     </script>
 </body>
