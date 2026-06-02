@@ -4,61 +4,49 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>JEOresearch | Dr. Jason Orlosky</title>
+  <title>JEO Research | Eye Tracking, AR, VR, and Open Source Tutorials</title>
 
-  <meta name="description" content="JEOresearch is the research homepage of Dr. Jason Orlosky, featuring work on augmented reality, virtual reality, eye tracking, visualization, artificial intelligence, and open-source research tools." />
+  <meta
+    name="description"
+    content="JEO Research provides open-source software, tutorials, videos, and research projects related to eye tracking, augmented reality, virtual reality, and user interface technology."
+  />
 
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <header class="topbar">
-    <a class="site-title" href="/">JEOresearch</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/">JEOresearch</a>
 
-    <nav class="topnav">
-      <a href="/">Home</a>
-      <a href="#useful-research">Useful Research</a>
-      <a href="#topics">Topics</a>
-      <a href="https://www.youtube.com/@JEOresearch">YouTube</a>
-      <a href="https://github.com/JEOresearch">GitHub</a>
-    </nav>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="#tutorials">Tutorials</a>
+        <a href="#research">Research</a>
+        <a href="https://github.com/JEOresearch">GitHub</a>
+        <a href="https://www.youtube.com/@JEOresearch">YouTube</a>
+      </nav>
+    </div>
   </header>
 
   <main class="page">
 
-    <section class="intro-layout">
-      <div class="intro-text">
-        <h1>Welcome to JEOresearch.</h1>
-        <h2>Let’s change the world together!</h2>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Welcome to JEO Research!</h1>
 
-        <div class="goals">
-          <p class="section-label">Current Goals and Priorities:</p>
-
-          <ol>
-            <li>Build scalable educational interfaces to reduce the disparities that lead to international conflict.</li>
-            <li>Develop safe and beneficial artificial general intelligence for digital life forms.</li>
-            <li>Improve understanding and transparency between nations, institutions, and people.</li>
-          </ol>
-        </div>
-
-        <p>
-          <strong>Bio:</strong> My name is Jason and I am currently a professor at Augusta University and adjunct faculty
-          at Osaka University, with research topics such as augmented reality, visualization, and artificial intelligence.
-          Some of my research goals include improving the safety and usability of AR, promoting cross-functional and
-          interdisciplinary research efforts, better understanding the human brain and its relationship with machines,
-          and improving the development of AI.
+        <p class="intro">
+          I am a researcher that open-sources software related to eye tracking,
+          augmented reality, virtual reality, and other user interface technology.
+          This site is organized into tutorials around these topics that are designed
+          to improve accessibility and DIY instructions. Each topic has sample code,
+          text tutorials, images, and/or videos for you to get started.
         </p>
 
-        <p>
-          I was funded by the Japan Society for the Promotion of Science (JSPS) fellowship for research on intelligent AR
-          from 2015–2017, by the U.S. Office of Naval Research Global (ONRG) for my work on vision enhancement from
-          2017–2021, and again by JSPS for my work on cognitive symbiosis from 2021–2025.
-        </p>
-
-        <div class="profile-links">
-          <a href="https://www.linkedin.com/">LinkedIn</a>
+        <div class="profile-links" aria-label="Profile links">
+          <a href="https://www.linkedin.com/in/jasonorlosky/">LinkedIn</a>
           <span>|</span>
-          <a href="https://scholar.google.com/">Google Scholar</a>
+          <a href="https://scholar.google.hu/citations?hl=en&user=QLSRDi8AAAAJ">Google Scholar</a>
           <span>|</span>
           <a href="#">Curriculum Vitae</a>
           <span>|</span>
@@ -70,149 +58,182 @@
         </div>
       </div>
 
-      <aside class="profile-card">
-        <div class="profile-image-placeholder">
+      <div class="hero-image">
+        <!-- Replace this placeholder with a real image if desired. -->
+        <!-- Example:
+        <img src="images/profile-or-lab.webp" alt="JEO Research eye tracking and AR/VR projects" />
+        -->
+        <div class="image-placeholder">
           <span>JEO</span>
         </div>
-
-        <h3>Dr. Jason Orlosky</h3>
-        <p>Augmented Reality • Virtual Reality • Eye Tracking • AI</p>
-      </aside>
-    </section>
-
-    <section id="useful-research" class="content-section">
-      <h2>Useful Research:</h2>
-
-      <div class="research-list">
-
-        <article class="research-item">
-          <div class="thumb"></div>
-          <div>
-            <h3>An Open Source Eye Tracker for Python</h3>
-            <p>A lightweight Python-based eye tracking project for pupil detection and gaze-related experiments.</p>
-            <div class="item-links">
-              <a href="https://github.com/JEOresearch/EyeTracker">GitHub</a>
-              <a href="#">Video</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="research-item">
-          <div class="thumb"></div>
-          <div>
-            <h3>Fast Selection with Eye Tracking for AR/VR/MR</h3>
-            <p>Gaze-based interaction techniques for faster selection in immersive environments.</p>
-            <div class="item-links">
-              <a href="#">Paper</a>
-              <a href="#">GitHub</a>
-              <a href="#">Video</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="research-item">
-          <div class="thumb"></div>
-          <div>
-            <h3>3D Gaze Tracker</h3>
-            <p>A gaze tracking system for estimating three-dimensional gaze behavior in XR environments.</p>
-            <div class="item-links">
-              <a href="#">Paper</a>
-              <a href="#">GitHub</a>
-              <a href="#">Video</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="research-item">
-          <div class="thumb"></div>
-          <div>
-            <h3>Fast Gaze-based Window Switching</h3>
-            <p>A hands-free gaze-based system for rapidly switching between virtual screens and windows.</p>
-            <div class="item-links">
-              <a href="#">GitHub</a>
-              <a href="#">Video</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="research-item">
-          <div class="thumb"></div>
-          <div>
-            <h3>Eye-tracked Simulation of Visual Deficits in VR</h3>
-            <p>VR simulations that use eye tracking to model and demonstrate visual impairments.</p>
-            <div class="item-links">
-              <a href="#">Paper</a>
-              <a href="#">Video</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="research-item">
-          <div class="thumb"></div>
-          <div>
-            <h3>An Interface to Simulate and Assist with Macular Degeneration</h3>
-            <p>Assistive and simulation interfaces for understanding visual deficits such as macular degeneration.</p>
-            <div class="item-links">
-              <a href="#">Paper</a>
-              <a href="#">Video</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="research-item">
-          <div class="thumb"></div>
-          <div>
-            <h3>Gaze-based Rotation Control</h3>
-            <p>Gaze-driven object manipulation and rotation control for head-mounted displays.</p>
-            <div class="item-links">
-              <a href="#">Paper</a>
-              <a href="#">Video</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="research-item">
-          <div class="thumb"></div>
-          <div>
-            <h3>Vertigo Simulation (BPPV)</h3>
-            <p>A VR-based simulation for demonstrating vertigo and balance-related visual effects.</p>
-            <div class="item-links">
-              <a href="#">Video</a>
-            </div>
-          </div>
-        </article>
-
       </div>
     </section>
 
-    <section id="topics" class="content-section">
-      <h2>Topics</h2>
+    <section id="tutorials" class="section tutorials-section">
+      <h2>Tutorials:</h2>
 
-      <div class="topic-grid">
-
-        <a class="topic-card" href="/eye-tracking/">
-          <div class="topic-image"></div>
-          <h3>Eye Tracking and Prototyping</h3>
-          <p>Head-mounted display prototypes for augmented and mixed reality.</p>
+      <div class="tutorial-grid">
+        <a class="tutorial-card" href="/eye-tracking/front-camera/">
+          <div class="tutorial-thumb">
+            <!-- Replace with image:
+            <img src="images/eye-tracking-front-camera.webp" alt="Front camera eye tracking tutorial" />
+            -->
+          </div>
+          <h3>Eye Tracking</h3>
+          <p>(Front Camera)</p>
         </a>
 
-        <a class="topic-card" href="/augmented-reality/">
-          <div class="topic-image"></div>
-          <h3>Augmented Reality</h3>
-          <p>Interaction, content management, and XR interfaces.</p>
+        <a class="tutorial-card" href="/eye-tracking/vr-headset/">
+          <div class="tutorial-thumb">
+            <!-- Replace with image:
+            <img src="images/eye-tracking-vr-headset.webp" alt="VR headset eye tracking tutorial" />
+            -->
+          </div>
+          <h3>Eye Tracking</h3>
+          <p>(VR Headset)</p>
         </a>
+      </div>
+    </section>
 
-        <a class="topic-card" href="/ai-visualization/">
-          <div class="topic-image"></div>
-          <h3>Artificial Intelligence and Visualization</h3>
-          <p>Integration of artificial intelligence with XR and visualization.</p>
-        </a>
+    <section id="research" class="section">
+      <h2>Other interesting research:</h2>
 
-        <a class="topic-card" href="/intelligent-agents/">
-          <div class="topic-image"></div>
-          <h3>Intelligent Agents</h3>
-          <p>Agents that resonate with the user’s cognitive state.</p>
-        </a>
+      <div class="research-list">
+
+        <article class="research-row">
+          <div class="research-thumb">
+            <!-- <img src="images/fast-selection-eye-tracking.webp" alt="Fast selection with eye tracking for AR VR MR" /> -->
+          </div>
+
+          <div class="research-content">
+            <h3>Fast Selection with Eye Tracking for AR/VR/MR</h3>
+            <p>
+              Gaze-based selection and interaction techniques for augmented,
+              virtual, and mixed reality interfaces.
+            </p>
+            <div class="links">
+              <a href="https://ieeexplore.ieee.org/">Paper</a>
+              <span>|</span>
+              <a href="https://github.com/JEOresearch">GitHub</a>
+              <span>|</span>
+              <a href="https://youtu.be/">Video</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="research-row">
+          <div class="research-thumb">
+            <!-- <img src="images/3d-gaze-tracker.webp" alt="3D gaze tracker project" /> -->
+          </div>
+
+          <div class="research-content">
+            <h3>3D Gaze Tracker</h3>
+            <p>
+              A gaze tracking system for estimating and visualizing gaze behavior
+              in three-dimensional environments.
+            </p>
+            <div class="links">
+              <a href="https://ieeexplore.ieee.org/">Paper</a>
+              <span>|</span>
+              <a href="https://github.com/JEOresearch">GitHub</a>
+              <span>|</span>
+              <a href="https://www.youtube.com/@JEOresearch">Video</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="research-row">
+          <div class="research-thumb">
+            <!-- <img src="images/gaze-window-switching.webp" alt="Fast gaze based window switching" /> -->
+          </div>
+
+          <div class="research-content">
+            <h3>Fast Gaze-based Window Switching</h3>
+            <p>
+              A hands-free gaze-based system for rapidly switching between virtual
+              screens and windows.
+            </p>
+            <div class="links">
+              <a href="https://github.com/JEOresearch">GitHub</a>
+              <span>|</span>
+              <a href="https://youtu.be/">Video</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="research-row">
+          <div class="research-thumb">
+            <!-- <img src="images/visual-deficits-vr.webp" alt="Eye tracked visual deficits simulation in VR" /> -->
+          </div>
+
+          <div class="research-content">
+            <h3>Eye-tracked Simulation of Visual Deficits in VR</h3>
+            <p>
+              VR simulations that use eye tracking to model and demonstrate visual
+              impairments and perceptual phenomena.
+            </p>
+            <div class="links">
+              <a href="https://ieeexplore.ieee.org/">Paper</a>
+              <span>|</span>
+              <a href="https://youtu.be/">Video</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="research-row">
+          <div class="research-thumb">
+            <!-- <img src="images/macular-degeneration-interface.webp" alt="Macular degeneration simulation and assistance interface" /> -->
+          </div>
+
+          <div class="research-content">
+            <h3>An Interface to Simulate and Assist with Macular Degeneration</h3>
+            <p>
+              Assistive and simulation interfaces for understanding visual deficits
+              such as macular degeneration.
+            </p>
+            <div class="links">
+              <a href="https://ieeexplore.ieee.org/">Paper</a>
+              <span>|</span>
+              <a href="https://youtu.be/">Video</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="research-row">
+          <div class="research-thumb">
+            <!-- <img src="images/gaze-rotation-control.webp" alt="Gaze based rotation control" /> -->
+          </div>
+
+          <div class="research-content">
+            <h3>Gaze-based Rotation Control</h3>
+            <p>
+              Gaze-driven object manipulation and rotation control for head-mounted
+              displays and immersive environments.
+            </p>
+            <div class="links">
+              <a href="https://dl.acm.org/">Paper</a>
+              <span>|</span>
+              <a href="https://youtu.be/">Video</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="research-row">
+          <div class="research-thumb">
+            <!-- <img src="images/vertigo-bppv-simulation.webp" alt="Vertigo BPPV simulation" /> -->
+          </div>
+
+          <div class="research-content">
+            <h3>Vertigo Simulation (BPPV)</h3>
+            <p>
+              A VR-based visual simulation for demonstrating vertigo and
+              balance-related perceptual effects.
+            </p>
+            <div class="links">
+              <a href="https://youtu.be/">Video</a>
+            </div>
+          </div>
+        </article>
 
       </div>
     </section>
@@ -220,7 +241,7 @@
   </main>
 
   <footer class="footer">
-    <p>© Jason Orlosky / JEOresearch</p>
+    <p>© Jason Orlosky / JEO Research</p>
   </footer>
 </body>
 </html>
