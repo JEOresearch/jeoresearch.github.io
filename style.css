@@ -128,6 +128,18 @@ h1 {
   width: 100%;
 }
 
+.profile-caption {
+  margin-top: 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  background: var(--soft);
+  color: var(--text);
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+}
+
 .image-placeholder {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -164,7 +176,7 @@ h1 {
 
 .tutorial-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 280px));
+  grid-template-columns: repeat(3, minmax(0, 280px));
   gap: 28px;
 }
 
@@ -195,7 +207,7 @@ h1 {
 .tutorial-card h3 {
   margin: 0;
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .tutorial-card p {
@@ -253,6 +265,10 @@ h1 {
   height: 100%;
   display: block;
   object-fit: cover;
+}
+
+.profile-image img {
+  height: auto;
 }
 
 .footer {

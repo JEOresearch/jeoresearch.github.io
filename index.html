@@ -36,7 +36,7 @@
         <h1>Welcome to JEO Research!</h1>
 
         <p class="intro">
-          I am a researcher that open-sources software related to eye tracking,
+          I open-source software related to eye tracking,
           augmented reality, virtual reality, and other user interface technology.
           This site is organized into tutorials around these topics that are designed
           to improve accessibility and DIY instructions. Each topic has sample code,
@@ -59,12 +59,9 @@
       </div>
 
       <div class="hero-image">
-        <!-- Replace this placeholder with a real image if desired. -->
-        <!-- Example:
-        <img src="images/profile-or-lab.webp" alt="JEO Research eye tracking and AR/VR projects" />
-        -->
-        <div class="image-placeholder">
-          <span>JEO</span>
+        <img src="images/profile.png" alt="Jason Orlosky profile photo" />
+        <div style="margin-top: 10px; font-weight: 700; text-align: center;">
+          Jason Orlosky, PhD
         </div>
       </div>
     </section>
@@ -73,32 +70,58 @@
       <h2>Tutorials:</h2>
 
       <div class="tutorial-grid">
-        <a class="tutorial-card" href="/eye-tracking/front-camera/">
+        <a class="tutorial-card" href="eyetracking.html">
           <div class="tutorial-thumb">
-            <img src="images/gaze.png" alt="Front camera eye tracking tutorial" />
+            <img src="images/frontcamera.png" alt="Front camera eye tracking tutorial" />
           </div>
-          <h3>Eye Tracking</h3>
-          <p>(Front Camera)</p>
+          <h3>World-Camera Eye Tracking</h3>
         </a>
 
-        <a class="tutorial-card" href="/eye-tracking/vr-headset/">
+        <a class="tutorial-card" href="vrtracker.html">
           <div class="tutorial-thumb">
             <img src="images/vrgaze.PNG" alt="VR headset eye tracking tutorial" />
           </div>
-          <h3>Eye Tracking</h3>
-          <p>(VR Headset)</p>
+          <h3>VR Eye Tracking</h3>
+        </a>
+
+        <a class="tutorial-card" href="headgaze.html">
+          <div class="tutorial-thumb">
+            <img src="images/headgaze.png" alt="Head gaze web camera tutorial" />
+          </div>
+          <h3>Webcam Head Tracker</h3>
         </a>
       </div>
     </section>
 
     <section id="research" class="section">
-      <h2>Other interesting research:</h2>
+      <h2>Other useful research:</h2>
 
       <div class="research-list">
 
         <article class="research-row">
           <div class="research-thumb">
-            <!-- <img src="images/fast-selection-eye-tracking.webp" alt="Fast selection with eye tracking for AR VR MR" /> -->
+            <img src="images/objectrepair.png" alt="Object tracking research" />
+          </div>
+
+          <div class="research-content">
+            <h3>Object tracking</h3>
+            <p>
+              Object tracking techniques for interactive repair and immersive
+              industrial and manufacturing systems.
+            </p>
+            <div class="links">
+              <a href="https://ieeexplore.ieee.org/abstract/document/11449977/">Paper</a>
+              <span>|</span>
+              <a href="https://youtu.be/mwCYAo6ketg">Video</a>              
+              <span>|</span>
+              <a href="https://vieaura.com/connect">Product</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="research-row">
+          <div class="research-thumb">
+            <img src="images/eyeshadows.png" alt="Fast selection with eye tracking for AR VR MR" />
           </div>
 
           <div class="research-content">
@@ -108,50 +131,47 @@
               virtual, and mixed reality interfaces.
             </p>
             <div class="links">
-              <a href="https://ieeexplore.ieee.org/">Paper</a>
+              <a href="https://ieeexplore.ieee.org/iel7/10494036/10494070/10494120.pdf">Paper</a>
               <span>|</span>
-              <a href="https://github.com/JEOresearch">GitHub</a>
+              <a href="https://github.com/JEOresearch/EyeShadows">GitHub</a>
               <span>|</span>
-              <a href="https://youtu.be/">Video</a>
+              <a href="https://youtu.be/WoGK_Xf9cdU">Video</a>
             </div>
           </div>
         </article>
 
         <article class="research-row">
           <div class="research-thumb">
-            <!-- <img src="images/3d-gaze-tracker.webp" alt="3D gaze tracker project" /> -->
+            <img src="images/gaze.png" alt="3D gaze tracker project" />
           </div>
 
           <div class="research-content">
-            <h3>3D Gaze Tracker</h3>
+            <h3>The Math of 3D Gaze Tracking</h3>
             <p>
-              A gaze tracking system for estimating and visualizing gaze behavior
-              in three-dimensional environments.
+              An explanation of 3D gaze tracking for estimating and visualizing gaze behavior.
             </p>
             <div class="links">
-              <a href="https://ieeexplore.ieee.org/">Paper</a>
+              <a href="https://ieeexplore.ieee.org/iel7/7781472/7781702/07781771.pdf">Paper</a>
               <span>|</span>
-              <a href="https://github.com/JEOresearch">GitHub</a>
+              <a href="https://github.com/YutaItoh/3D-Eye-Tracker">GitHub</a>
               <span>|</span>
-              <a href="https://www.youtube.com/@JEOresearch">Video</a>
+              <a href="https://www.youtube.com/watch?v=EH6UVQZgvJE">Video</a>
             </div>
           </div>
         </article>
 
         <article class="research-row">
           <div class="research-thumb">
-            <!-- <img src="images/gaze-window-switching.webp" alt="Fast gaze based window switching" /> -->
+            <!-- <img src="images/vertigo-bppv-simulation.webp" alt="Vertigo BPPV simulation" /> -->
           </div>
 
           <div class="research-content">
-            <h3>Fast Gaze-based Window Switching</h3>
+            <h3>Vertigo Simulation (BPPV)</h3>
             <p>
-              A hands-free gaze-based system for rapidly switching between virtual
-              screens and windows.
+              A VR-based visual simulation for demonstrating vertigo and
+              balance-related perceptual effects.
             </p>
             <div class="links">
-              <a href="https://github.com/JEOresearch">GitHub</a>
-              <span>|</span>
               <a href="https://youtu.be/">Video</a>
             </div>
           </div>
@@ -197,35 +217,18 @@
 
         <article class="research-row">
           <div class="research-thumb">
-            <!-- <img src="images/gaze-rotation-control.webp" alt="Gaze based rotation control" /> -->
+            <!-- <img src="images/gaze-window-switching.webp" alt="Fast gaze based window switching" /> -->
           </div>
 
           <div class="research-content">
-            <h3>Gaze-based Rotation Control</h3>
+            <h3>Fast Gaze-based Window Switching</h3>
             <p>
-              Gaze-driven object manipulation and rotation control for head-mounted
-              displays and immersive environments.
+              A hands-free gaze-based system for rapidly switching between virtual
+              screens and windows.
             </p>
             <div class="links">
-              <a href="https://dl.acm.org/">Paper</a>
+              <a href="https://github.com/JEOresearch">GitHub</a>
               <span>|</span>
-              <a href="https://youtu.be/">Video</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="research-row">
-          <div class="research-thumb">
-            <!-- <img src="images/vertigo-bppv-simulation.webp" alt="Vertigo BPPV simulation" /> -->
-          </div>
-
-          <div class="research-content">
-            <h3>Vertigo Simulation (BPPV)</h3>
-            <p>
-              A VR-based visual simulation for demonstrating vertigo and
-              balance-related perceptual effects.
-            </p>
-            <div class="links">
               <a href="https://youtu.be/">Video</a>
             </div>
           </div>
