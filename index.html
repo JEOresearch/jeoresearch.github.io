@@ -12,6 +12,7 @@
   />
 
   <link rel="stylesheet" href="style.css" />
+  <script src="https://apis.google.com/js/platform.js"></script>
 </head>
 
 <body>
@@ -21,25 +22,24 @@
 
       <nav class="nav">
         <a href="/">Home</a>
-        <a href="#tutorials">Tutorials</a>
-        <a href="#research">Research</a>
+        <a href="research.html">Research</a>
+        <a href="ccslab.html">ARVRLab</a>
         <a href="https://github.com/JEOresearch">GitHub</a>
-        <a href="https://www.youtube.com/@JEOresearch">YouTube</a>
       </nav>
     </div>
   </header>
 
   <main class="page">
 
-    <section class="hero">
+    <section class="hero profile-hero">
       <div class="hero-text">
         <h1>Welcome to JEO Research!</h1>
 
         <p class="intro">
           I open-source software related to eye tracking,
           augmented reality, virtual reality, and other user interface technology.
-          This site is organized into tutorials around these topics that are designed
-          to improve accessibility and DIY instructions. Each topic has sample code,
+          This site is organized into tutorials and DIY instructions on these topics to 
+          improve accessibility and education. Each topic has sample code,
           text tutorials, images, and/or videos for you to get started.
         </p>
 
@@ -63,11 +63,14 @@
         <div style="margin-top: 10px; font-weight: 700; text-align: center;">
           Jason Orlosky, PhD
         </div>
+        <div style="margin-top: 10px; text-align: center;">
+          <div class="g-ytsubscribe" data-channelid="UCS9oAlDpRkq14yxmpmw2jpA" data-layout="default" data-count="default"></div>
+        </div>
       </div>
     </section>
 
     <section id="tutorials" class="section tutorials-section">
-      <h2>Tutorials:</h2>
+      <h2>Tutorials and DIY:</h2>
 
       <div class="tutorial-grid">
         <a class="tutorial-card" href="eyetracking.html">
@@ -104,7 +107,7 @@
           </div>
 
           <div class="research-content">
-            <h3>Object tracking</h3>
+            <h3>Object tracking for maintenance and repair</h3>
             <p>
               Object tracking techniques for interactive repair and immersive
               industrial and manufacturing systems.
@@ -148,7 +151,7 @@
           <div class="research-content">
             <h3>The Math of 3D Gaze Tracking</h3>
             <p>
-              An explanation of 3D gaze tracking for estimating and visualizing gaze behavior.
+              An explanation of 3D gaze tracking, including pupil detection and 3D gaze estimation.
             </p>
             <div class="links">
               <a href="https://ieeexplore.ieee.org/iel7/7781472/7781702/07781771.pdf">Paper</a>
@@ -162,7 +165,7 @@
 
         <article class="research-row">
           <div class="research-thumb">
-            <!-- <img src="images/vertigo-bppv-simulation.webp" alt="Vertigo BPPV simulation" /> -->
+            <img src="images/vertigo.jpg" alt="Vertigo BPPV simulation" />
           </div>
 
           <div class="research-content">
@@ -179,7 +182,7 @@
 
         <article class="research-row">
           <div class="research-thumb">
-            <!-- <img src="images/visual-deficits-vr.webp" alt="Eye tracked visual deficits simulation in VR" /> -->
+            <img src="images/deficits.png" alt="Eye tracked visual deficits simulation in VR" />
           </div>
 
           <div class="research-content">
@@ -198,7 +201,7 @@
 
         <article class="research-row">
           <div class="research-thumb">
-            <!-- <img src="images/macular-degeneration-interface.webp" alt="Macular degeneration simulation and assistance interface" /> -->
+            <img src="images/macular.png" alt="Macular degeneration simulation and assistance interface" />
           </div>
 
           <div class="research-content">
@@ -209,25 +212,6 @@
             </p>
             <div class="links">
               <a href="https://ieeexplore.ieee.org/">Paper</a>
-              <span>|</span>
-              <a href="https://youtu.be/">Video</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="research-row">
-          <div class="research-thumb">
-            <!-- <img src="images/gaze-window-switching.webp" alt="Fast gaze based window switching" /> -->
-          </div>
-
-          <div class="research-content">
-            <h3>Fast Gaze-based Window Switching</h3>
-            <p>
-              A hands-free gaze-based system for rapidly switching between virtual
-              screens and windows.
-            </p>
-            <div class="links">
-              <a href="https://github.com/JEOresearch">GitHub</a>
               <span>|</span>
               <a href="https://youtu.be/">Video</a>
             </div>
