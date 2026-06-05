@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Eye Tracking with a Front Camera | JEO Research</title>
+  <title>Eye Tracking with a Front Camera Tutorial | JEO Research</title>
 
   <meta
     name="description"
@@ -31,31 +31,225 @@
   <main class="page">
     <section class="hero">
       <div class="hero-text">
-        <h1>Eye Tracking with a Front Camera</h1>
+        <h1>DIY Eye Tracking with a Front Camera</h1>
 
         <p class="intro">
-          This tutorial page provides detailed instructions on how to set up an eye tracking camera with a front-facing camera. This lets you record a gaze point on the user's world view.
+          This tutorial shows how to build a simple front-camera eye tracker
+          with Python. The tracker estimates a 3D gaze origin and direction
+          that can be used for screen control, interaction experiments, and
+          gaze visualization.
         </p>
 
         <p>
-          Video tutorial:
+          Video summary:
           <a href="https://youtu.be/Zed2jPgks9s">video</a>
         </p>
 
         <p>
-          Math behind eye tracking:
+          The math behind the eye tracking:
           <a href="https://youtu.be/Gh8LS9erugE">video</a>
         </p>
       </div>
 
       <div class="hero-image">
-        <img src="images/frontcamera.png" alt="Front camera eye tracking tutorial" />
+        <a href="images/frontcamera.png" target="_blank" rel="noopener">
+          <img src="images/frontcamera.png" alt="Front camera eye tracking tutorial" />
+        </a>
       </div>
+    </section>
+
+    <section class="section tutorial-steps">
+      <h2>Building the Tracker</h2>
+
+      <article class="tutorial-step">
+        <h3>Step 1: Gather the parts</h3>
+
+        <p>
+          You need a small <a href="https://amzn.to/41x8p2W">eye tracking camera</a>,
+          a low cost <a href="https://amzn.to/444eXIa">board camera</a>,
+          <a href="https://amzn.to/43SznVl">USB extension cables</a> if you
+          need more cable length, a pair of
+          <a href="https://amzn.to/42KBLN3">cheap sunglasses</a> with the
+          lenses removed, <a href="https://amzn.to/4pi6wBn">soft wire cabling</a>
+          or another flexible material for mounting, and
+          <a href="https://amzn.to/44ef97I">electrical tape</a> for securing
+          loose cable sections. A low-cost GC0308 eye tracking camera works for
+          this build, and inexpensive dollar-store glasses are enough because
+          the frame is only used to hold the camera near the eye.
+        </p>
+
+        <div class="step-images">
+          <figure>
+            <a href="images/frontcamera/gc0308.png" target="_blank" rel="noopener">
+              <img src="images/frontcamera/gc0308.png" alt="GC0308 eye tracking camera" loading="lazy" />
+            </a>
+            <figcaption>GC0308 eye tracking camera or similar small USB camera.</figcaption>
+          </figure>
+          <figure>
+            <a href="images/frontcamera/boardcamera.png" target="_blank" rel="noopener">
+              <img src="images/frontcamera/boardcamera.png" alt="Low-cost board camera for DIY eye tracking" loading="lazy" />
+            </a>
+            <figcaption>Board (environment) camera.</figcaption>
+          </figure>
+          <figure>
+            <a href="images/frontcamera/nolens.png" target="_blank" rel="noopener">
+              <img src="images/frontcamera/nolens.png" alt="Glasses frame with lenses removed" loading="lazy" />
+            </a>
+            <figcaption>Glasses frame with the lenses removed.</figcaption>
+          </figure>
+          <figure>
+            <a href="images/frontcamera/wire.png" target="_blank" rel="noopener">
+              <img src="images/frontcamera/wire.png" alt="Soft wire for mounting the camera" loading="lazy" />
+            </a>
+            <figcaption>Soft wire or flexible mounting material.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 2: Attach the camera to the glasses</h3>
+
+        <p>
+          Wrap the soft wire around the camera and cable, then attach it to
+          the glasses frame. Use electrical tape if you need to
+          secure the camera cable or keep the mount from sliding. The goal is
+          to make a firm but adjustable mount:
+          the camera should stay in place after you reposition it, but you
+          should still be able to bend the mount until the eye is fully visible
+          in the camera feed.
+        </p>
+
+        <div class="step-images step-images-uniform">
+          <figure>
+            <a href="images/frontcamera/camerasmounted.png" target="_blank" rel="noopener">
+              <img src="images/frontcamera/camerasmounted.png" alt="Eye tracking cameras mounted to glasses" loading="lazy" />
+            </a>
+            <figcaption>Both cameras mounted on the glasses.</figcaption>
+          </figure>
+          <figure class="step-image-wide">
+            <a href="images/frontcamera/eyeinview.png" target="_blank" rel="noopener">
+              <img src="images/frontcamera/eyeinview.png" alt="Eye fully visible in the mounted camera view" loading="lazy" />
+            </a>
+            <figcaption>Adjusted mount with the eye fully visible in the camera view.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 3: Install the Python dependencies</h3>
+
+        <p>
+          Download <code>Orlosky3DEyeTracker.py</code> and install the required
+          Python packages. The tracker uses OpenCV and NumPy for image
+          processing. Tkinter is used for the startup window and is included
+          with many Python installations. The optional <code>gl_sphere.py</code>
+          file enables the OpenGL sphere visualization, but the tracker will
+          still run without it.
+        </p>
+
+        <pre><code>pip install opencv-python numpy</code></pre>
+
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 4: Run the tracker</h3>
+
+        <p>
+          Open a terminal in the folder containing the script and run it with
+          Python. On startup, the tracker opens a small window titled
+          <code>Select Input Source</code>. Choose your camera from the dropdown
+          and click <code>Start Camera</code>. You can also use
+          <code>Browse Video</code> to test the tracker on an existing
+          <code>.mp4</code> or <code>.avi</code> file.
+        </p>
+
+        <pre><code>python Orlosky3DEyeTracker.py</code></pre>
+
+        <div class="step-images">
+          <figure>
+            <a href="images/frontcamera/camerabutton.png" target="_blank" rel="noopener">
+              <img src="images/frontcamera/camerabutton.png" alt="Input source window with Start Camera button" loading="lazy" />
+            </a>
+            <figcaption>Input-source window with the camera dropdown and Start Camera button.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 5: Position the eye in the camera view</h3>
+
+        <p>
+          After clicking <code>Start Camera</code>, adjust the camera until the
+          eye is clearly visible in the OpenCV window. The script crops the
+          frame, finds the darkest pupil region, thresholds the image at several
+          levels, fits an ellipse to the pupil, and estimates the eye center
+          from recent pupil rays. In normal use, the tracker self-calibrates to
+          the observed eye position as you move.
+        </p>
+
+        <div class="step-images">
+          <figure>
+            <a href="images/frontcamera/eyevisible.png" target="_blank" rel="noopener">
+              <img src="images/frontcamera/eyevisible.png" alt="Eye clearly visible in the OpenCV camera window" loading="lazy" />
+            </a>
+            <figcaption>Eye centered and clearly visible in the OpenCV camera window.</figcaption>
+          </figure>
+          <figure class="step-image-wide">
+            <a href="images/frontcamera/thresholding.png" target="_blank" rel="noopener">
+              <img src="images/frontcamera/thresholding.png" alt="Pupil region isolated by thresholding" loading="lazy" />
+            </a>
+            <figcaption>Dark pupil region isolated by thresholding.</figcaption>
+          </figure>
+          <figure>
+            <a href="images/frontcamera/gazeray.png" target="_blank" rel="noopener">
+              <img src="images/frontcamera/gazeray.png" alt="Pupil ellipse eye center and gaze line overlay" loading="lazy" />
+            </a>
+            <figcaption>Pupil ellipse, estimated eye center, and gaze line overlay.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 6: Read the gaze output</h3>
+
+        <p>
+          The OpenCV output window displays the current 3D gaze origin and gaze
+          direction near the bottom of the frame. The script also writes these
+          six values to <code>gaze_vector.txt</code> on each frame: the three
+          origin coordinates followed by the three normalized gaze direction
+          values. Use <code>q</code> to quit, the spacebar to pause, <code>e</code>
+          to toggle ellipse capture, and <code>c</code> to clear captured
+          ellipses.
+        </p>
+
+        <pre><code>x_origin,y_origin,z_origin,x_direction,y_direction,z_direction</code></pre>
+
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 7: Use the vector in your own project</h3>
+
+        <p>
+          Once the tracker is running, you can read <code>gaze_vector.txt</code>
+          from another program or modify the Python script to send the gaze
+          vector directly to your application. This first setup gives you a raw
+          3D gaze direction. From there, you can calibrate it to a monitor, VR
+          headset, or another display surface for interaction experiments. 
+        </p>
+
+        <p>
+          For the VR installation process, see this
+          <a href="https://youtu.be/l95eJe8MV5g">video</a> or this
+          <a href="vrtracker.html">tutorial</a>.
+        </p>
+
+      </article>
     </section>
   </main>
 
   <footer class="footer">
     <p>Jason Orlosky / JEO Research</p>
+    <p>As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.</p>
   </footer>
 </body>
 </html>
