@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Head Gaze with a Web Camera | JEO Research</title>
+  <title>Webcam Head and Gaze Tracking Tutorial | JEO Research</title>
 
   <meta
     name="description"
@@ -21,8 +21,16 @@
 
       <nav class="nav">
         <a href="index.html">Home</a>
-        <a href="research.html">Research</a>
+        <div class="nav-dropdown">
+          <button class="nav-trigger" type="button">DIY</button>
+          <div class="nav-menu">
+            <a href="eyetracking.html">Eye Tracker (Glasses)</a>
+            <a href="vrtracker.html">Eye Tracker (VR)</a>
+            <a href="headgaze.html">Head Tracker (Webcam)</a>
+          </div>
+        </div>
         <a href="ccslab.html">ARVRLab</a>
+        <a href="research.html">Publications</a>
         <a href="https://github.com/JEOresearch">GitHub</a>
       </nav>
     </div>
@@ -34,20 +42,218 @@
         <h1>Head Gaze with a Web Camera</h1>
 
         <p class="intro">
-          This tutorial page will collect resources for head gaze tracking with a
-          standard web camera, including setup notes, interaction examples, and
-          hands-free interface projects.
+          This tutorial shows how to use a standard web camera for head-gaze
+          screen control. The tracker estimates your head direction from facial
+          landmarks, calibrates that direction to your monitor, and moves the
+          mouse cursor so you can interact with on-screen keyboards and other
+          desktop applications.
         </p>
+
+        <div class="profile-links" aria-label="Tutorial links">
+          <a href="https://youtu.be/hImmJDTgXjw">Video Summary</a>
+          <span>|</span>
+          <a href="https://github.com/JEOresearch/EyeTracker/tree/main/HeadTracker">HeadTracker on GitHub</a>
+        </div>
       </div>
 
       <div class="hero-image">
-        <img src="images/headgaze.png" alt="Head gaze web camera tutorial" />
+        <a href="images/headgaze.png" target="_blank" rel="noopener">
+          <img src="images/headgaze.png" alt="Head gaze web camera tutorial" />
+        </a>
       </div>
+    </section>
+
+    <section class="section tutorial-steps">
+      <h2>Building the Head-Gaze Tracker</h2>
+
+      <article class="tutorial-step">
+        <h3>Step 1: Hardware</h3>
+
+        <p>
+          You just need a computer and a standard webcam. I recommend the
+          <a href="https://amzn.to/43of401">Logitech Brio 100 webcam</a>
+          because it is inexpensive, has a clear HD image, and gives the
+          tracker enough resolution for reliable face landmarks. A built-in
+          laptop camera may also work if it can see your full face clearly.
+        </p>
+
+        <p>
+          Place the camera near the monitor you want to control. The tracker
+          works best when the camera is stable, pointed directly at your face,
+          and not too far above or below the center of the screen.
+        </p>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 2: Download the code</h3>
+
+        <p>
+          Download the open-source head tracking project from GitHub. The
+          monitor-control script uses your webcam, estimates a 3D head direction,
+          calibrates that direction to the center of your monitor, and then
+          moves the mouse cursor based on head motion.
+        </p>
+
+        <pre><code>git clone https://github.com/JEOresearch/EyeTracker.git</code></pre>
+
+        <p>
+          The head tracking files are in the <code>HeadTracker</code> folder.
+          If you download the repository as a zip file instead, extract it first
+          and open a terminal in the folder containing the head-gaze script.
+        </p>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 3: Install the Python dependencies</h3>
+
+        <p>
+          The tracker uses OpenCV for camera input and display, MediaPipe Face
+          Mesh for facial landmarks, NumPy for vector math, PyAutoGUI for moving
+          the mouse, and the keyboard package for the <code>F7</code> toggle.
+          Install the required packages before running the script.
+        </p>
+
+        <pre><code>pip install opencv-python mediapipe numpy pyautogui keyboard</code></pre>
+
+        <p>
+          On some systems, global keyboard shortcuts or mouse control may require
+          extra operating-system permissions. If the preview windows open but
+          the cursor does not move, check your accessibility, input-monitoring,
+          or administrator permissions.
+        </p>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 4: Run the tracker</h3>
+
+        <p>
+          Connect your webcam, sit in front of the monitor, and run the Python
+          script. The current version opens camera index <code>0</code>, which
+          is usually the default webcam. If your computer has multiple cameras,
+          you may need to change the <code>cv2.VideoCapture(0)</code> value in
+          the script.
+        </p>
+
+        <pre><code>python MonitorTrackingHeadOnly.py</code></pre>
+
+        <p>
+          When the tracker starts, it opens two OpenCV windows:
+          <code>Head-Aligned Cube</code> and <code>Facial Landmarks</code>. The
+          cube shows the estimated 3D orientation of your head, and the green
+          ray shows the smoothed head direction used for screen control.
+        </p>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 5: Position your face in the camera view</h3>
+
+        <p>
+          Adjust the webcam and your seating position until your whole face is
+          visible. The script uses the outer points of your facial features to
+          estimate the head's left-right, up-down, and forward axes. If the face
+          is partially cut off, the head direction and cursor position will be
+          less stable.
+        </p>
+
+        <p>
+          Keep the lighting even and avoid strong shadows across the face. The
+          tracker smooths recent head-direction estimates, but a clear camera
+          image is still the easiest way to reduce jitter.
+        </p>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 6: Calibrate to the center of the monitor</h3>
+
+        <p>
+          Point your head at the center of the monitor and press <code>c</code>.
+          The script records the current yaw and pitch offsets and treats that
+          direction as the center of the screen. After calibration, turning your
+          head left, right, up, or down maps the cursor across the monitor.
+        </p>
+
+        <p>
+          The default mapping reaches the left and right screen edges at about
+          20 degrees of yaw, and the top and bottom edges at about 10 degrees of
+          pitch. If you want larger or smaller head movements, adjust the
+          <code>yawDegrees</code> and <code>pitchDegrees</code> values in the
+          Python script.
+        </p>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 7: Control the cursor</h3>
+
+        <p>
+          Once calibrated, the script moves the mouse cursor toward the screen
+          position calculated from your head direction. You can use this with an
+          on-screen keyboard, large buttons, dwell-click software, or other
+          assistive interaction tools.
+        </p>
+
+        <p>
+          Press <code>F7</code> to toggle mouse control on or off. This is useful
+          if you need to pause cursor movement while adjusting the camera,
+          changing windows, or recalibrating. Press <code>q</code> in the OpenCV
+          window to quit the tracker.
+        </p>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 8: Tune the tracker for your setup</h3>
+
+        <p>
+          If the cursor feels too jumpy, increase <code>filter_length</code> in
+          the Python script to average more recent head-direction samples. If it
+          feels too slow or delayed, reduce that value. The script also clamps
+          the cursor near the monitor edges so it does not move completely off
+          screen.
+        </p>
+
+        <p>
+          If the cursor does not reach the full screen, reduce the
+          <code>yawDegrees</code> or <code>pitchDegrees</code> values. If small
+          head motions move the cursor too far, increase those values. Recalibrate
+          with <code>c</code> after changing your seating position or camera
+          angle.
+        </p>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 9: Use AI to build your own head-gaze application</h3>
+
+        <p>
+          You can use an AI coding assistant or large language model to adapt
+          this tracker for your own accessibility or interaction project. Give
+          the model the Python script, explain that it maps head yaw and pitch
+          to screen coordinates, and ask for small testable changes.
+        </p>
+
+        <p>
+          These sample prompts can help you get started:
+        </p>
+
+        <pre><code>I have a Python head-gaze tracker that uses MediaPipe Face Mesh and PyAutoGUI
+to move the mouse cursor. Explain how the calibration and screen mapping work.</code></pre>
+
+        <pre><code>Modify this head-gaze tracker so it supports dwell clicking when the cursor
+stays near the same point for 1 second. Keep the first version simple.</code></pre>
+
+        <pre><code>Add a small settings section to this Python script so I can change smoothing,
+yaw range, and pitch range without editing constants throughout the code.</code></pre>
+
+        <pre><code>Help me make this head-gaze tracker work with an on-screen keyboard. Suggest a
+simple workflow for selection, dwell timing, and pausing mouse control.</code></pre>
+
+        <pre><code>Here is the error message I get when running the head tracker. Explain what is
+probably wrong and give me the smallest setup or code change to try first.</code></pre>
+      </article>
     </section>
   </main>
 
   <footer class="footer">
     <p>Jason Orlosky / JEO Research</p>
+    <p>As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.</p>
   </footer>
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Eye Tracking with a VR Headset | JEO Research</title>
+  <title>VR Headset Eye Tracking Tutorial | JEO Research</title>
 
   <meta
     name="description"
@@ -21,8 +21,16 @@
 
       <nav class="nav">
         <a href="index.html">Home</a>
-        <a href="research.html">Research</a>
+        <div class="nav-dropdown">
+          <button class="nav-trigger" type="button">DIY</button>
+          <div class="nav-menu">
+            <a href="eyetracking.html">Eye Tracker (Glasses)</a>
+            <a href="vrtracker.html">Eye Tracker (VR)</a>
+            <a href="headgaze.html">Head Tracker (Webcam)</a>
+          </div>
+        </div>
         <a href="ccslab.html">ARVRLab</a>
+        <a href="research.html">Publications</a>
         <a href="https://github.com/JEOresearch">GitHub</a>
       </nav>
     </div>
@@ -34,20 +42,314 @@
         <h1>Eye Tracking with a VR Headset</h1>
 
         <p class="intro">
-          This tutorial page will collect resources for setting up eye tracking
-          with a VR headset, including calibration notes, gaze visualization, and
-          examples for gaze-based interaction in immersive environments.
+          This tutorial shows how to add low-cost eye tracking to a VR or AR
+          headset with a small infrared camera. The tracker writes a gaze vector
+          from Python, then a Unity scene calibrates that vector into a 3D gaze
+          ray for analysis, interaction, communication, or custom VR projects.
         </p>
+
+        <div class="profile-links" aria-label="Tutorial links">
+          <a href="https://youtu.be/l95eJe8MV5g">Video Summary</a>
+          <span>|</span>
+          <a href="https://github.com/JEOresearch/EyeTracker/blob/main/3DTracker/Orlosky3DEyeTracker.py">Python Tracker Code</a>
+          <span>|</span>
+          <a href="https://github.com/JEOresearch/EyeTracker/tree/main/VREyeTracker">VR Calibration Script for Unity</a>
+        </div>
       </div>
 
       <div class="hero-image">
-        <img src="images/vrgaze.PNG" alt="VR headset eye tracking tutorial" />
+        <a href="images/vrgaze.PNG" target="_blank" rel="noopener">
+          <img src="images/vrgaze.PNG" alt="VR headset eye tracking tutorial" />
+        </a>
       </div>
+    </section>
+
+    <section class="section tutorial-steps">
+      <h2>Building the VR Tracker</h2>
+
+      <article class="tutorial-step">
+        <h3>Step 1: Gather the parts</h3>
+
+        <p>
+          You need a VR or AR headset, a small
+          <a href="https://amzn.to/41x8p2W">GC0308 eye tracking camera</a>,
+          <a href="https://amzn.to/43SznVl">USB extension cables</a> if you
+          need more cable length, and
+          <a href="https://amzn.to/4pi6wBn">soft wire cabling</a> or another
+          flexible mounting material. This build uses an
+          <a href="https://amzn.to/49OOrW0">HTC Vive Pro headset</a>, but the
+          same idea can be adapted to other headsets. An
+          <a href="https://amzn.to/4foKDOU">older Vive kit</a> can also work if
+          you already have compatible trackers or controllers.
+        </p>
+
+        <p>
+          The important requirement is that the camera can sit near one eye
+          without blocking the display or being fully enclosed. The GC0308 can
+          get warm during use, so leave it exposed enough for heat to escape.
+        </p>
+
+        <div class="step-images">
+          <figure>
+            <a href="images/frontcamera/gc0308.png" target="_blank" rel="noopener">
+              <img src="images/frontcamera/gc0308.png" alt="GC0308 eye tracking camera" loading="lazy" />
+            </a>
+            <figcaption>GC0308 IR camera</figcaption>
+          </figure>
+          <figure>
+            <a href="images/vrsetup/vivepro.jpg" target="_blank" rel="noopener">
+              <img src="images/vrsetup/vivepro.jpg" alt="HTC Vive Pro headset for VR eye tracking" loading="lazy" />
+            </a>
+            <figcaption>HTC Vive Pro headset</figcaption>
+          </figure>
+          <figure>
+            <a href="images/vrsetup/vive.jpg" target="_blank" rel="noopener">
+              <img src="images/vrsetup/vive.jpg" alt="Older HTC Vive kit for VR eye tracking" loading="lazy" />
+            </a>
+            <figcaption>Older Vive headset kit</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 2: Set the camera focus</h3>
+
+        <p>
+          Before mounting the camera, slightly unscrew the camera lens so the
+          focal distance is roughly 3 centimeters. This puts the eye in focus
+          when the camera is mounted close to the face inside the headset.
+        </p>
+
+        <p>
+          Connect the camera to your computer and check the stream in any basic
+          camera viewer. If the image is blurry at eye distance, keep making
+          small lens adjustments until the pupil and eyelids are clearly visible.
+        </p>
+
+        <div class="step-images">
+          <figure>
+            <a href="images/vrsetup/camerafocus.jpg" target="_blank" rel="noopener">
+              <img src="images/vrsetup/camerafocus.jpg" alt="Adjusting the camera lens focus for VR eye tracking" loading="lazy" />
+            </a>
+            <figcaption>Camera lens adjusted for eye distance</figcaption>
+          </figure>
+          <figure>
+            <a href="images/frontcamera/eyevisible.png" target="_blank" rel="noopener">
+              <img src="images/frontcamera/eyevisible.png" alt="Eye clearly visible in the camera view" loading="lazy" />
+            </a>
+            <figcaption>Eye clearly visible in the camera view</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 3: Mount the camera inside the headset</h3>
+
+        <p>
+          Remove the portion of the display padding on the side where you want
+          to track the eye. Use soft wire to hold the camera near the lens area,
+          then bend the wire until the camera has a clear view of your eye.
+          The exact position and orientation will vary by headset, so treat the
+          first mount as adjustable rather than permanent.
+        </p>
+
+        <p>
+          To verify the view while wearing the headset, open the desktop view
+          in SteamVR and display the camera feed with a camera viewer. Adjust
+          the wire until the full eye is visible and the camera does not block
+          the headset display.
+        </p>
+
+        <div class="step-images">
+          <figure>
+            <a href="images/vrsetup/vrcamerainsert.jpg" target="_blank" rel="noopener">
+              <img src="images/vrsetup/vrcamerainsert.jpg" alt="Camera inserted inside a VR headset after removing padding" loading="lazy" />
+            </a>
+            <figcaption>Padding removed and camera inserted</figcaption>
+          </figure>
+          <figure>
+            <a href="images/vrsetup/vrcamera.jpg" target="_blank" rel="noopener">
+              <img src="images/vrsetup/vrcamera.jpg" alt="Verifying the camera angle inside the VR headset" loading="lazy" />
+            </a>
+            <figcaption>Camera angle checked inside the headset</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 4: Download the tracker code</h3>
+
+        <p>
+          Download the Python eye tracking script and the Unity VR calibration
+          project from GitHub. The Python script detects the pupil and writes a
+          gaze vector to a text file. The Unity script reads that file, shows
+          the uncalibrated gaze point, and guides the headset calibration.
+        </p>
+
+        <pre><code>git clone https://github.com/JEOresearch/EyeTracker.git</code></pre>
+
+        <p>
+          The main Python script is
+          <code>3DTracker/Orlosky3DEyeTracker.py</code>. The Unity files are in
+          <code>VREyeTracker</code>.
+        </p>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 5: Prepare the Unity scene</h3>
+
+        <p>
+          In Unity, import the VR rig or SDK for your headset. For a Vive Pro,
+          the SteamVR assets can be used. Add the downloaded
+          <code>EyeTracker.cs</code> script to the headset object in your scene.
+          This should be the object that represents the headset transform,
+          because the gaze sphere is positioned relative to the headset in 3D
+          space.
+        </p>
+
+        <p>
+          Set the <code>GazeFilePath</code> value in the Unity script to match
+          the write path used by the Python tracker. The example script reads
+          <code>C:\users\jason\gaze_vector.txt</code>, but you should change
+          that path if your Python script writes <code>gaze_vector.txt</code>
+          somewhere else. The Unity script expects six values: the three origin
+          coordinates followed by the three direction coordinates.
+        </p>
+
+        <div class="step-images">
+          <figure>
+            <a href="images/vrsetup/unityscene.jpg" target="_blank" rel="noopener">
+              <img src="images/vrsetup/unityscene.jpg" alt="Unity scene set up for VR eye tracking calibration" loading="lazy" />
+            </a>
+            <figcaption>Unity scene with the headset tracker script</figcaption>
+          </figure>
+          <figure>
+            <a href="images/vrsetup/headsetview.jpg" target="_blank" rel="noopener">
+              <img src="images/vrsetup/headsetview.jpg" alt="Uncalibrated headset view with gaze marker" loading="lazy" />
+            </a>
+            <figcaption>Uncalibrated gaze marker in the headset view</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 6: Run the Python tracker first</h3>
+
+        <p>
+          Start the Python script before pressing play in Unity. Select the
+          eye-tracking camera, then let the tracker self-center on your eye.
+          If the camera image is mirrored or upside down for your headset
+          mounting position, use the <code>CVflip</code> function in the Python
+          script to flip the camera image as needed.
+        </p>
+
+        <pre><code>python Orlosky3DEyeTracker.py</code></pre>
+
+        <p>
+          Once the pupil is being tracked and <code>gaze_vector.txt</code> is
+          updating, return to Unity and press play. In the Unity scene view,
+          you should see a moving gray sphere that represents the uncalibrated
+          gaze estimate.
+        </p>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 7: Calibrate the gaze ray in Unity</h3>
+
+        <p>
+          With the Unity game window selected, press <code>c</code> to begin
+          calibration. The script shows three red calibration spheres: center,
+          up, and down. Look directly at the center sphere and press
+          <code>c</code>, then look at the up sphere and press <code>c</code>,
+          then look at the down sphere and press <code>c</code>. The default
+          up and down targets are 10 degrees above and below center.
+        </p>
+
+        <p>
+          After calibration, the gray sphere should track with your eye. The
+          script uses the center target to rotate the raw Python direction
+          forward, then uses the up and down targets to scale vertical gaze
+          motion. Press <code>b</code> if you want to leave a frozen copy of the
+          current gaze sphere in the scene for debugging.
+        </p>
+
+        <div class="step-images">
+          <figure>
+            <a href="images/vrsetup/calibrationsphere.jpg" target="_blank" rel="noopener">
+              <img src="images/vrsetup/calibrationsphere.jpg" alt="Red calibration sphere shown in the VR headset" loading="lazy" />
+            </a>
+            <figcaption>Red calibration sphere in the headset view</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 8: Use the gaze ray in your own project</h3>
+
+        <p>
+          The calibrated gaze ray can be used for gaze analysis, VR interface
+          selection, attention-aware games, assistive communication, or custom
+          interaction experiments. In Unity, use the headset origin and the
+          direction from the headset to the gray gaze sphere as a ray, then
+          test what it intersects in your scene.
+        </p>
+
+        <pre><code>Vector3 gazeDirection = (gazeSphere.transform.position - transform.position).normalized;
+Ray gazeRay = new Ray(transform.position, gazeDirection);</code></pre>
+
+        <p>
+          For a first prototype, start by drawing the ray and logging the object
+          it hits. After the ray is stable, add smoothing, dwell selection, or
+          application-specific behavior.
+        </p>
+
+        <div class="step-images">
+          <figure>
+            <a href="images/vrsetup/vrgazevector.jpg" target="_blank" rel="noopener">
+              <img src="images/vrsetup/vrgazevector.jpg" alt="Final calibrated VR gaze ray in Unity" loading="lazy" />
+            </a>
+            <figcaption>Final calibrated gaze ray in Unity (green ray)</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 9: Use AI to build a VR gaze application</h3>
+
+        <p>
+          You can use an AI coding assistant or large language model to turn
+          the calibrated gaze ray into a custom VR interaction. Give the model
+          the Python tracker, the Unity script, and a short description of what
+          the gaze ray represents. Ask for small testable changes, then paste
+          any Unity console errors or unexpected behavior back into the chat.
+        </p>
+
+        <p>
+          These sample prompts can help you get started:
+        </p>
+
+        <pre><code>I have a Unity VR eye tracker that reads gaze_vector.txt from a Python script
+and calibrates it into a 3D gaze ray from the headset. Explain how I can use
+this ray to select objects in a VR scene.</code></pre>
+
+        <pre><code>Modify my Unity script so the gaze ray performs a Physics.Raycast every frame
+and highlights the object the user is looking at. Keep the first version simple.</code></pre>
+
+        <pre><code>Add dwell selection to this VR gaze tracker. If the user looks at the same
+interactable object for 1 second, trigger that object's selection event.</code></pre>
+
+        <pre><code>Help me smooth this VR gaze ray without adding too much latency. Explain where
+to add the smoothing code in the Unity script.</code></pre>
+
+        <pre><code>Here is the Unity console error I get when reading gaze_vector.txt. Explain what
+is probably wrong and give me the smallest setup or code change to try first.</code></pre>
+      </article>
     </section>
   </main>
 
   <footer class="footer">
     <p>Jason Orlosky / JEO Research</p>
+    <p>As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.</p>
   </footer>
 </body>
 </html>

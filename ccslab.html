@@ -21,8 +21,16 @@
 
       <nav class="nav">
         <a href="index.html">Home</a>
-        <a href="research.html">Research</a>
+        <div class="nav-dropdown">
+          <button class="nav-trigger" type="button">DIY</button>
+          <div class="nav-menu">
+            <a href="eyetracking.html">Eye Tracker (Glasses)</a>
+            <a href="vrtracker.html">Eye Tracker (VR)</a>
+            <a href="headgaze.html">Head Tracker (Webcam)</a>
+          </div>
+        </div>
         <a href="ccslab.html">ARVRLab</a>
+        <a href="research.html">Publications</a>
         <a href="https://github.com/JEOresearch">GitHub</a>
       </nav>
     </div>
@@ -31,18 +39,308 @@
   <main class="page">
     <section class="hero">
       <div class="hero-text">
-        <h1>ARVRLab</h1>
+        <h1>The ARVR Lab</h1>
 
         <p class="intro">
-          This lab page collects research, prototypes, and open-source projects
-          related to augmented reality, virtual reality, eye tracking, and
-          human-computer interaction.
+          At the School of Computer and Cyber Sciences, Augusta University, in
+          collaboration with the Cybermedia Center at Osaka University.
         </p>
+
+        <p class="intro">
+          Empowering education and training through augmented and virtual
+          reality.
+        </p>
+
+        <p>
+          The ARVR Lab is a state-of-the-art laboratory within Augusta
+          University's School of Computer and Cyber Sciences. As part of the
+          <a href="https://www.augusta.edu/ccs/research/cyber-physical-systems.php">Cyber-Physical Systems</a>
+          group, we build hardware and software that can improve how we interact
+          with virtual content and strive to achieve a balance of theoretical
+          and practical research. See our
+          <a href="https://youtu.be/Jr8me5uMl-c">Lab Intro Video</a>
+          for more details.
+        </p>
+
+        <div class="profile-links" aria-label="ARVR Lab links">
+          <a href="https://youtu.be/Jr8me5uMl-c">Lab Intro Video</a>
+          <span>|</span>
+          <a href="#research">Recent Research</a>
+          <span>|</span>
+          <a href="#apply">Apply</a>
+        </div>
       </div>
 
       <div class="hero-image">
-        <img src="images/vrgaze.PNG" alt="ARVRLab research and prototypes" />
+        <img src="images/ccslab/arvrlab.jpg" alt="ARVRLab research and prototypes" />
       </div>
+    </section>
+
+    <section class="section">
+      <h2>Lab Experiences</h2>
+
+      <div class="experience-carousel" aria-label="ARVR Lab experiences">
+        <figure>
+          <img src="images/ccslab/lab-experience-01.jpg" alt="ARVR Lab students and collaborators at IEEEVR 2024" loading="lazy" />
+          <figcaption>IEEEVR 2024</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/ccslab/lab-experience-02.jpg" alt="ARVR Lab study abroad experience in Japan" loading="lazy" />
+          <figcaption>Study Abroad - Japan</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/ccslab/lab-experience-03.jpg" alt="ARVR Lab members attending the IEEEVR conference" loading="lazy" />
+          <figcaption>IEEEVR Conference</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/ccslab/lab-experience-04.jpg" alt="ARVR Lab international potluck gathering" loading="lazy" />
+          <figcaption>International Potluck</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/ccslab/lab-experience-05.jpg" alt="ARVR Lab gaming and interactive technology activity" loading="lazy" />
+          <figcaption>Gaming</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/ccslab/lab-experience-06.jpg" alt="ARVR Lab industry partnership demonstration" loading="lazy" />
+          <figcaption>Industry Partnerships</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/ccslab/lab-experience-07.jpg" alt="ARVR Lab social event with students and researchers" loading="lazy" />
+          <figcaption>Social Events</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/ccslab/lab-experience-08.jpg" alt="ARVR Lab inter-department collaboration activity" loading="lazy" />
+          <figcaption>Inter-Department Collaboration</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/ccslab/lab-experience-09.jpg" alt="ARVR Lab students exploring research prototypes" loading="lazy" />
+          <figcaption>Fun with Research</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/ccslab/lab-experience-10.jpg" alt="ARVR Lab outdoor augmented reality research activity" loading="lazy" />
+          <figcaption>Outdoor Augmented Reality</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/ccslab/lab-experience-11.jpg" alt="ARVR Lab interactive technology demonstration" loading="lazy" />
+          <figcaption>Interactive Technology</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/ccslab/lab-experience-12.jpg" alt="ARVR Lab demonstration of augmented and virtual reality research" loading="lazy" />
+          <figcaption>Lab Demonstrations</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/ccslab/lab-experience-13.jpg" alt="ARVR Lab collaboration among students and researchers" loading="lazy" />
+          <figcaption>Lab Collaboration</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/ccslab/lab-experience-14.jpg" alt="ARVR Lab experience with students researchers and interactive systems" loading="lazy" />
+          <figcaption>ARVR Lab Experience</figcaption>
+        </figure>
+      </div>
+
+      <p class="experience-summary">
+        Lab experiences include IEEEVR, study abroad in Japan, conference
+        presentations, international potlucks, gaming, industry partnerships,
+        social events, inter-department collaboration, outdoor augmented reality,
+        interactive technology, lab demonstrations, and collaborative research.
+      </p>
+    </section>
+
+    <section id="research" class="section">
+      <h2>Recent Research</h2>
+
+      <div class="research-list">
+        <article class="research-row">
+          <div class="research-thumb">
+            <img src="images/objectrepair.png" alt="Object tracking research" loading="lazy" />
+          </div>
+
+          <div class="research-content">
+            <h3>Object tracking for maintenance and repair</h3>
+            <p>
+              Object tracking techniques for interactive repair and immersive
+              industrial and manufacturing systems.
+            </p>
+            <div class="links">
+              <a href="https://youtu.be/mwCYAo6ketg">Video</a>
+              <span>|</span>
+              <a href="https://ieeexplore.ieee.org/abstract/document/11449977/">Paper</a>
+              <span>|</span>
+              <a href="https://vieaura.com/connect">Product</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="research-row">
+          <div class="research-thumb">
+            <img src="images/eyeshadows.png" alt="EyeShadows fast gaze selection research" loading="lazy" />
+          </div>
+
+          <div class="research-content">
+            <h3>Fast Gaze Selection and Interaction</h3>
+            <p>
+              Orlosky, J., Liu., C, Sakamoto, K., Sidenmark, L., &amp; Mansour,
+              A. (2024). EyeShadows: Peripheral Virtual Copies for Rapid Gaze
+              Selection and Interaction. To appear in the Proceedings of the
+              IEEE conference on Virtual Reality.
+              <strong>[Best Presentation Honorable Mention]</strong>
+            </p>
+            <div class="links">
+              <a href="https://youtu.be/WoGK_Xf9cdU">YouTube</a>
+              <span>|</span>
+              <a href="https://drive.google.com/file/d/1Y7FXEEYMRgailNLopEgMF1D2suNeWofL/view?usp=sharing">PDF</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="research-row">
+          <div class="research-thumb">
+            <img src="images/vertigo.jpg" alt="Vision modulation and VR sickness research" loading="lazy" />
+          </div>
+
+          <div class="research-content">
+            <h3>VR Sickness Reduction via Vision Modulation</h3>
+            <p>
+              Zhao, G., Orlosky, J., Gabbard, J., &amp; Kiyokawa, K. (2023).
+              HazARdSnap: Gaze-based Augmentation Delivery for Safe Information
+              Access while Cycling. IEEE Transactions on Visualization and
+              Computer Graphics.
+            </p>
+            <div class="links">
+              <a href="https://youtu.be/F48dvlqVrF4">YouTube</a>
+              <span>|</span>
+              <a href="https://ieeexplore.ieee.org/abstract/document/9793626">PDF</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="research-row">
+          <div class="research-thumb">
+            <img src="images/deficits.png" alt="Visual deficit simulation in virtual reality" loading="lazy" />
+          </div>
+
+          <div class="research-content">
+            <h3>Simulation of Visual Deficits in Virtual Reality</h3>
+            <p>
+              Alexander, D., Nguyen, T., Keller, P., Orlosky, J., Brown, S.,
+              Wood, E., ... &amp; Jirau-Rosaly, W. (2020, March). Design of
+              visual deficit simulation for integration into a geriatric
+              physical diagnosis course. In 2020 IEEE Conference on Virtual
+              Reality and 3D User Interfaces Abstracts and Workshops (VRW)
+              (pp. 838-839). IEEE.
+            </p>
+            <div class="links">
+              <a href="https://youtu.be/9kRilVoQxgI">YouTube</a>
+              <span>|</span>
+              <a href="https://www.researchgate.net/profile/Jason-Orlosky/publication/341314909_Design_of_Visual_Deficit_Simulation_for_Integration_into_a_Geriatric_Physical_Diagnosis_Course/links/605d82af92851cd8ce694e2d/Design-of-Visual-Deficit-Simulation-for-Integration-into-a-Geriatric-Physical-Diagnosis-Course.pdf">PDF</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="apply" class="section">
+      <h2>Getting your MS or PhD in Computer Science</h2>
+
+      <p>
+        The AR-VR Lab is looking for highly motivated individuals with a
+        passion for solving challenging research problems.
+      </p>
+
+      <h3>Funding</h3>
+
+      <p>
+        At the current time, I am only accepting self-funded graduate students,
+        though additional external funding may become available later. For
+        American citizens, I strongly recommend applying for the
+        <a href="https://www.nsfgrfp.org/">NSF Graduate Research Fellowship Program</a>. 
+        Submitting to the GRFP is required, if you are eligible, to be considered for lab
+        funding. 
+      </p>
+
+      <h3>Application</h3>
+
+      <p>
+        Individuals who would like to apply to the lab as part of their
+        <a href="https://www.augusta.edu/ccs/programs/">SCCS Masters or PhD program</a>
+        application should submit the following additional documents by e-mail
+        to <code>jorlosky {at} augusta.edu</code>.
+      </p>
+
+      <ul>
+        <li>Resume or Curriculum Vitae, 2 pages maximum.</li>
+        <li>
+          A 2-3 page research plan in
+          <a href="https://www.ieee.org/conferences/publishing/templates.html">double-column format</a>,
+          including your motivations for becoming an MS or PhD student, the
+          technical content, and a schedule or plan for conducting the research
+          work.
+        </li>
+        <li>
+          Copies of any undergraduate or graduate transcripts. Official copies
+          may be requested later.
+        </li>
+      </ul>
+
+      <p>
+        We are also looking for research assistant volunteers, who may be invited to apply
+        directly for the MS or PhD program based on their performance.
+        Assistantships range from one semester to one year, and applicants
+        should follow the same process outlined above.
+      </p>
+
+      <h3>Required Qualifications</h3>
+
+      <ul>
+        <li>
+          A technical background in computer science, computer or electrical
+          engineering, or a similar discipline.
+        </li>
+        <li>Familiarity with AI tools, including prompt engineering, agentic 
+          workflows, and/or human-in-the-loop development</li>
+        <li>Clearly defined research goals.</li>
+        <li>
+          The ability to work well with other teams of students, researchers, 
+          and AI agents.
+        </li>
+        <li>A command of written and spoken English.</li>
+      </ul>
+
+      <h3>Recommended Qualifications</h3>
+
+      <ul>
+        <li>
+          Experience in one or more of the following areas: cognitive science,
+          human-computer interaction, artificial intelligence, or computer
+          graphics.
+        </li>
+        <li>
+          Proficiency in one or more of the following programming languages:
+          C++, Java, Python, or C#.
+        </li>
+        <li>
+          Knowledge of one or more of the following tools or areas: Unity 3D,
+          ARToolKit, virtual reality, augmented reality, OpenGL, or OpenCV.
+        </li>
+      </ul>
+
+      <p>
+        Keywords: Augmented Reality; Virtual Reality; Eye Tracking; Artificial
+        Intelligence; Interaction; Remote Collaboration
+      </p>
     </section>
   </main>
 
