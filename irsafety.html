@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Are Infrared LEDs Safe for Your Eyes? | JEO Research</title>
+
+  <meta
+    name="description"
+    content="Learn how to use infrared LEDs confidently by evaluating irradiance, driving current, distance, and other practical exposure factors."
+  />
+
+  <link rel="canonical" href="https://www.jeoresearch.com/irsafety.html" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">JEOresearch</a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+          <button class="nav-trigger" type="button">DIY_Eye_Tracking</button>
+          <div class="nav-menu">
+            <a href="eyetracking.html">Eye Tracker (Glasses)</a>
+            <a href="vrtracker.html">Eye Tracker (VR)</a>
+            <a href="headgaze.html">Head Tracker (Webcam)</a>
+            <a href="irsafety.html">Infrared Safety</a>
+          </div>
+        </div>
+        <a href="ccslab.html">ARVRLab</a>
+        <a href="research.html">Publications</a>
+        <a href="https://github.com/JEOresearch">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Are Infrared LEDs Safe for Your Eyes?</h1>
+
+        <p class="intro">
+          Infrared LEDs are used in eye trackers, security cameras, depth
+          sensors, and many other devices, and properly designed systems can
+          use them safely and effectively. Because infrared light is invisible,
+          it is helpful to verify the output of unfamiliar or modified emitters.
+          This guide explains the factors that affect exposure and how to
+          evaluate an infrared setup.
+        </p>
+
+        <div class="profile-links" aria-label="Related resources">
+          <a href="#evaluating-your-ir-setup">Evaluating your IR Setup</a>
+          <span>|</span>
+          <a href="https://youtu.be/z30AyH_1XVE">Reference Video</a>
+          <span>|</span>
+          <a href="https://webstore.iec.ch/en/publication/7076">IEC 62471 Safety Standard</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <a href="images/irled.jpg" target="_blank" rel="noopener">
+          <img src="images/irled.jpg" alt="Infrared LED emitter" />
+        </a>
+      </div>
+    </section>
+
+    <section class="section tutorial-steps">
+      <h2>Understanding Infrared LED Safety</h2>
+
+      <article class="tutorial-step">
+        <h3>Why infrared output is worth evaluating</h3>
+
+        <p>
+          Infrared lighting is a practical and widely used part of many
+          commercial eye trackers. Most low-power systems are designed to keep
+          exposure within appropriate limits. Still, infrared sources can vary,
+          and strong exposure can heat tissue in the eye. Because
+          near-infrared light is invisible, measuring an unfamiliar setup is
+          more reliable than judging its brightness by sight or camera phone.
+        </p>
+
+
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Understanding practical exposure limits</h3>
+
+        <p>
+          Irradiance describes radiant power arriving at a surface per unit
+          area. It is commonly measured in watts per square meter
+          (<code>W/m&sup2;</code>) or milliwatts per square centimeter
+          (<code>mW/cm&sup2;</code>).
+        </p>
+
+        <pre><code>10 W/m&sup2; (1 mW/cm&sup2;)</code></pre>
+
+        <p>
+          <a href="https://webstore.iec.ch/en/publication/7076">IEC 62471</a>
+          provides a framework for evaluating the photobiological
+          safety of lamps and lamp systems, including infrared sources. A value
+          such as <code>100 W/m&sup2; (10 mW/cm&sup2;)</code> can be useful as
+          a simplified screening reference in a demonstration, but it is not a
+          universal pass-or-fail limit for every infrared LED.
+        </p>
+
+        <p>
+          A proper assessment depends on the emitter wavelength, exposure
+          duration, viewing distance, beam shape, apparent source size, and the
+          relevant hazard being evaluated. Consumer meters may also have
+          limited wavelength ranges or may respond differently to sunlight and
+          narrow-band LEDs. For any DIY system or product, assess the complete system
+          against an objective standard in repeatable conditions.
+        </p>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Example readings from common light sources</h3>
+
+        <p>
+          An infrared <a href="https://amzn.to/4jCV4yy">irradiance meter</a>
+          can help compare sources under a consistent test setup. In one
+          informal experiment, a dark room produced a near-zero reading, a
+          monitor measured about <code>1 W/m&sup2; (0.1 mW/cm&sup2;)</code>,
+          and a fireplace measured approximately
+          <code>10-15 W/m&sup2; (1-1.5 mW/cm&sup2;)</code>.
+        </p>
+
+        <p>
+          Indoor daylight varies substantially with the room and the direction
+          of light. Irradiance readings near windows range from several watts per
+          square meter to more than
+          <code>100 W/m&sup2; (10 mW/cm&sup2;)</code>. Outdoor daylight
+          produces much higher meter readings in the 500+ W/m&sup2; (50 mW/cm&sup2;) 
+          range, especially in direct sunlight.
+          These examples show why distance, direction, environment, and meter
+          range should be recorded with every measurement.
+        </p>
+
+        <p>
+          Do not look directly at the sun!
+        </p>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>How LED shape changes irradiance</h3>
+
+        <p>
+          The optical shape of an LED affects how its output is distributed. A
+          domed LED can concentrate light into a narrower beam, while a
+          flat-top or diffused LED spreads the output across a wider area. A
+          coating can diffuse it further.
+        </p>
+
+        <p>
+          At a distance of five centimeters, three LEDs powered by the same
+          OV9281 camera module produced the following example readings:
+        </p>
+
+        <pre><code>Domed LED:             approximately 10-15 W/m&sup2; (1-1.5 mW/cm&sup2;)
+Sanded flat-top LED:   approximately 3-4 W/m&sup2; (0.3-0.4 mW/cm&sup2;)
+Painted flat-top LED:  approximately 1-2 W/m&sup2; (0.1-0.2 mW/cm&sup2;)</code></pre>
+
+        <p>
+          These readings illustrate the effect of diffusion, but they do not
+          establish one limit for every distance or exposure duration. Diffusion
+          and sensible placement can help reduce concentrated output, while
+          moving an emitter closer to the eye increases irradiance. If you
+          modify an LED, measure the finished setup so you know how it performs.
+        </p>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Driving current helps determine output</h3>
+
+        <p>
+          LED output is strongly related to driving current. Two products using
+          visually identical LEDs can produce very different irradiance if
+          their circuits supply different current or use different pulse
+          patterns.
+        </p>
+        <p>
+          Checking average current, peak pulse current, and duty cycle makes it
+          easier to choose an appropriate emitter and compare setups. Reliable
+          current limiting also helps keep output predictable during use.
+        </p>
+      </article>
+
+      <article class="tutorial-step">
+        <h3 id="evaluating-your-ir-setup">How to evaluate an infrared emitter</h3>
+
+        <p>
+          Use an <a href="https://amzn.to/4jCV4yy">irradiance meter</a> such as the one in the image below
+          to measure the device in its intended configuration, not only
+          the LED by itself. It is best to have a reference LED and to 
+          test at the closest realistic viewing distance. A repeatable
+          measurement provides useful reassurance that the setup is behaving
+          as intended.
+        </p>
+
+        <p>
+          In the following image, I evaluate the pupil labs camera against 
+          the GC0308 camera by holding both cameras directly over the meter sensor 
+          within one minute over each other at the same distance.
+        </p>
+
+        <figure class="comparison-image">
+          <a href="images/ircomparison.jpg" target="_blank" rel="noopener">
+            <img
+              src="images/ircomparison.jpg"
+              alt="Pupil Labs and GC0308 cameras positioned for irradiance measurements"
+            />
+          </a>
+          <figcaption>Pupil labs and GC0308 irradiance measurements</figcaption>
+        </figure>
+
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Key takeaway</h3>
+
+        <p>
+          Infrared LEDs are useful, efficient tools for eye tracking and many
+          other applications. Choosing a modest-output source, using sensible
+          distance and diffusion, and checking the complete system against a
+          known source with an irradiance meter can make an IR setup both
+          practical and reassuring to use.
+        </p>
+
+        <p>
+          This page is educational and does not replace a formal safety
+          assessment or professional advice.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Jason Orlosky / JEO Research</p>
+    <p>As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.</p>
+  </footer>
+</body>
+</html>

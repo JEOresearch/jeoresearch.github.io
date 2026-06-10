@@ -374,6 +374,20 @@ h1 {
   font-size: 0.92rem;
 }
 
+.comparison-image {
+  margin: 0;
+}
+
+.comparison-image a,
+.comparison-image img {
+  display: block;
+  width: 100%;
+}
+
+.comparison-image img {
+  height: auto;
+}
+
 .step-images {
   display: flex;
   flex-wrap: wrap;
