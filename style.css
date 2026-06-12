@@ -347,6 +347,74 @@ h1 {
   color: var(--muted);
 }
 
+/* Team members */
+
+.team-section > h2,
+.team-member h2 {
+  margin-bottom: 18px;
+}
+
+.team-list {
+  display: grid;
+  gap: 26px;
+}
+
+.team-member {
+  display: grid;
+  grid-template-columns: 205px minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.team-member h2,
+.team-member h3,
+.text-member-list h3 {
+  margin-top: 0;
+}
+
+.team-member p,
+.text-member-list p {
+  margin: 0 0 10px;
+}
+
+.member-photo {
+  width: 205px;
+  min-height: 200px;
+  display: grid;
+  place-items: center;
+}
+
+.member-photo img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 200px;
+}
+
+.member-photo-placeholder {
+  border: 1px solid var(--border);
+  background: var(--soft);
+  color: var(--muted);
+  font-size: 2rem;
+}
+
+.text-member-list {
+  gap: 18px;
+}
+
+.alumni-list {
+  columns: 2;
+  column-gap: 42px;
+  margin: 0;
+  padding-left: 22px;
+}
+
+.alumni-list li {
+  margin-bottom: 7px;
+  break-inside: avoid;
+}
+
 /* Tutorial steps */
 
 .tutorial-step {
@@ -539,6 +607,20 @@ h1 {
 
   .research-row {
     grid-template-columns: 1fr;
+  }
+
+  .team-member {
+    grid-template-columns: minmax(100px, 150px) minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .member-photo {
+    width: 100%;
+    min-height: 0;
+  }
+
+  .alumni-list {
+    columns: 1;
   }
 
   .research-thumb {
