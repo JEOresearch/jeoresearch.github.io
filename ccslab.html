@@ -4,6 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WZ7XJMTZF5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WZ7XJMTZF5');
+  </script>
+
   <title>ARVRLab | JEO Research</title>
 
   <meta
@@ -21,13 +30,16 @@
       <a class="brand" href="index.html">JEOresearch</a>
 
       <nav class="nav">
-        <a href="index.html">Home</a>
         <div class="nav-dropdown">
-          <button class="nav-trigger" type="button">DIY_Eye_Tracking</button>
+          <a class="nav-trigger" href="index.html">Home</a>
+          <div class="nav-menu"><a href="aboutme.html">About Me</a></div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-trigger" type="button">EyeTracking</button>
           <div class="nav-menu">
-            <a href="eyetracking.html">Eye Tracker (Glasses)</a>
-            <a href="vrtracker.html">Eye Tracker (VR)</a>
-            <a href="headgaze.html">Head Tracker (Webcam)</a>
+            <a href="eyetracking.html">DIY Eye Tracker (Glasses)</a>
+            <a href="vrtracker.html">DIY Eye Tracker (VR)</a>
+            <a href="headgaze.html">DIY Head Tracker (Webcam)</a>
             <a href="irsafety.html">Infrared Safety</a>
           </div>
         </div>
