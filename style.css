@@ -183,6 +183,15 @@ h1 {
   color: var(--muted);
 }
 
+.channel-support {
+  margin: 14px 0 0;
+}
+
+.hero > .channel-support {
+  grid-column: 1 / -1;
+  margin-top: -20px;
+}
+
 .hero-image {
   width: 100%;
 }
