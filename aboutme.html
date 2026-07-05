@@ -20,13 +20,17 @@
     {
       "@context": "https://schema.org",
       "@type": "ProfilePage",
+      "@id": "https://www.jeoresearch.com/aboutme.html#webpage",
       "url": "https://www.jeoresearch.com/aboutme.html",
       "name": "About Jason Orlosky, PhD",
+      "isPartOf": { "@id": "https://www.jeoresearch.com/#website" },
+      "breadcrumb": { "@id": "https://www.jeoresearch.com/aboutme.html#breadcrumb" },
       "mainEntity": {
         "@type": "Person",
+        "@id": "https://www.jeoresearch.com/#person",
         "name": "Jason Orlosky",
         "honorificSuffix": "PhD",
-        "image": "https://www.jeoresearch.com/images/profile.png",
+        "image": "https://www.jeoresearch.com/images/profile.jpg",
         "jobTitle": "Associate Professor",
         "knowsAbout": ["DIY eye tracking", "Eye tracking technology", "Gaze interaction", "Pupillometry", "Augmented reality", "Virtual reality", "Human-computer interaction", "Vision augmentation"],
         "affiliation": [
@@ -38,13 +42,42 @@
           { "@type": "CollegeOrUniversity", "name": "Georgia Institute of Technology" }
         ],
         "sameAs": [
-          "https://scholar.google.com/citations?hl=en&user=QLSRDi8AAAAJ",
-          "https://github.com/JEOresearch",
+          "https://www.youtube.com/channel/UCS9oAlDpRkq14yxmpmw2jpA",
           "https://www.linkedin.com/in/jasonorlosky/",
-          "https://www.youtube.com/channel/UCS9oAlDpRkq14yxmpmw2jpA"
+          "https://scholar.google.com/citations?hl=en&user=QLSRDi8AAAAJ",
+          "https://github.com/jeoresearch",
+          "https://orcid.org/0000-0002-0538-6630",
+          "https://www.augusta.edu/faculty/directory/view.php?id=JORLOSKY",
+          "https://augusta.elsevierpure.com/en/persons/jason-e-orlosky/",
+          "https://www.researchgate.net/profile/Jason-Orlosky",
+          "https://dblp.org/pid/127/6421",
+          "https://researchmap.jp/jasonorlosky",
+          "https://cir.nii.ac.jp/crid/1420001326217719424",
+          "https://www.google.com/search?kgmid=/g/11gbj30fwf"
         ]
       }
     }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "https://www.jeoresearch.com/aboutme.html#breadcrumb",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.jeoresearch.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About Jason Orlosky",
+        "item": "https://www.jeoresearch.com/aboutme.html"
+      }
+    ]
+  }
   </script>
 </head>
 <body>
@@ -54,7 +87,10 @@
       <nav class="nav">
         <div class="nav-dropdown">
           <a class="nav-trigger" href="index.html">Home</a>
-          <div class="nav-menu"><a href="aboutme.html">About Me</a></div>
+          <div class="nav-menu">
+            <a href="aboutme.html">About Me</a>
+            <a href="news.html">Appearances</a>
+          </div>
         </div>
         <div class="nav-dropdown">
           <button class="nav-trigger" type="button">EyeTracking</button>
@@ -96,7 +132,7 @@
         </div>
       </div>
       <div class="hero-image profile-image">
-        <img src="images/profile.png" alt="Jason Orlosky, DIY eye tracking and AR/VR researcher" />
+        <img src="images/profile.jpg" alt="Jason Orlosky, DIY eye tracking and AR/VR researcher" />
       </div>
       <p class="channel-support">
           To help support this software and other open-source projects, please consider

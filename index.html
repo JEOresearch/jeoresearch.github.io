@@ -27,39 +27,75 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": "https://www.jeoresearch.com/#person",
-    "name": "Jason Orlosky",
-    "honorificSuffix": "PhD",
-    "url": "https://www.jeoresearch.com/",
-    "image": "https://www.jeoresearch.com/images/profile.png",
-    "description": "Researcher and educator working in eye tracking, augmented reality, virtual reality, artificial intelligence, and human-computer interaction.",
-    "jobTitle": "Associate Professor",
-    "worksFor": {
-      "@type": "CollegeOrUniversity",
-      "name": "Augusta University",
-      "url": "https://www.augusta.edu/"
-    },
-    "knowsAbout": [
-      "Eye tracking",
-      "Augmented reality",
-      "Virtual reality",
-      "Artificial intelligence",
-      "Human-computer interaction"
-    ],
-    "sameAs": [
-      "https://www.youtube.com/channel/UCS9oAlDpRkq14yxmpmw2jpA",
-      "https://www.linkedin.com/in/jasonorlosky/",
-      "https://scholar.google.com/citations?hl=en&user=QLSRDi8AAAAJ",
-      "https://github.com/jeoresearch",
-      "https://orcid.org/0000-0002-0538-6630",
-      "https://www.augusta.edu/faculty/directory/view.php?id=JORLOSKY",
-      "https://augusta.elsevierpure.com/en/persons/jason-e-orlosky/",
-      "https://www.researchgate.net/profile/Jason-Orlosky",
-      "https://dblp.org/pid/127/6421",
-      "https://researchmap.jp/jasonorlosky",
-      "https://cir.nii.ac.jp/crid/1420001326217719424",
-      "https://share.google/5YgzkZQv0Bnh52ZgE"
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.jeoresearch.com/#person",
+        "name": "Jason Orlosky",
+        "honorificSuffix": "PhD",
+        "url": "https://www.jeoresearch.com/",
+        "image": "https://www.jeoresearch.com/images/profile.jpg",
+        "description": "Researcher and educator working in eye tracking, augmented reality, virtual reality, artificial intelligence, and human-computer interaction.",
+        "jobTitle": "Associate Professor",
+        "worksFor": {
+          "@type": "CollegeOrUniversity",
+          "name": "Augusta University",
+          "url": "https://www.augusta.edu/"
+        },
+        "knowsAbout": [
+          "Eye tracking",
+          "Augmented reality",
+          "Virtual reality",
+          "Artificial intelligence",
+          "Human-computer interaction"
+        ],
+        "sameAs": [
+          "https://www.youtube.com/channel/UCS9oAlDpRkq14yxmpmw2jpA",
+          "https://www.linkedin.com/in/jasonorlosky/",
+          "https://scholar.google.com/citations?hl=en&user=QLSRDi8AAAAJ",
+          "https://github.com/jeoresearch",
+          "https://orcid.org/0000-0002-0538-6630",
+          "https://www.augusta.edu/faculty/directory/view.php?id=JORLOSKY",
+          "https://augusta.elsevierpure.com/en/persons/jason-e-orlosky/",
+          "https://www.researchgate.net/profile/Jason-Orlosky",
+          "https://dblp.org/pid/127/6421",
+          "https://researchmap.jp/jasonorlosky",
+          "https://cir.nii.ac.jp/crid/1420001326217719424",
+        "https://www.google.com/search?kgmid=/g/11gbj30fwf"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.jeoresearch.com/#website",
+        "url": "https://www.jeoresearch.com/",
+        "name": "JEO Research",
+        "alternateName": "JEOresearch",
+        "creator": {
+          "@id": "https://www.jeoresearch.com/#person"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.jeoresearch.com/#webpage",
+        "url": "https://www.jeoresearch.com/",
+        "name": "Eye Tracking Tutorials, XR Research, and Open Source Tools | JEO Research",
+        "isPartOf": {
+          "@id": "https://www.jeoresearch.com/#website"
+        },
+        "about": {
+          "@id": "https://www.jeoresearch.com/#person"
+        },
+        "primaryImageOfPage": {
+          "@id": "https://www.jeoresearch.com/#primaryimage"
+        }
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.jeoresearch.com/#primaryimage",
+        "url": "https://www.jeoresearch.com/images/profile.jpg",
+        "contentUrl": "https://www.jeoresearch.com/images/profile.jpg",
+        "caption": "Jason Orlosky, PhD"
+      }
     ]
   }
   </script>
@@ -73,7 +109,10 @@
       <nav class="nav">
         <div class="nav-dropdown">
           <a class="nav-trigger" href="/">Home</a>
-          <div class="nav-menu"><a href="aboutme.html">About Me</a></div>
+          <div class="nav-menu">
+            <a href="aboutme.html">About Me</a>
+            <a href="news.html">Appearances</a>
+          </div>
         </div>
         <div class="nav-dropdown">
           <button class="nav-trigger" type="button">EyeTracking</button>
@@ -126,7 +165,7 @@
       </div>
 
       <div class="hero-image">
-        <img src="images/profile.png" alt="Jason Orlosky profile photo" />
+        <img src="images/profile.jpg" alt="Jason Orlosky profile photo" />
         <div style="margin-top: 5px; font-weight: 700; text-align: center;">
           Jason Orlosky, PhD
         </div>
@@ -144,21 +183,21 @@
       <div class="tutorial-grid">
         <a class="tutorial-card" href="eyetracking.html">
           <div class="tutorial-thumb">
-            <img src="images/frontcamera.png" alt="Front camera eye tracking tutorial" loading="lazy" />
+            <img src="images/frontcamera.jpg" alt="Front camera eye tracking tutorial" loading="lazy" />
           </div>
           <h3>Eye Tracking with a Front Camera</h3>
         </a>
 
         <a class="tutorial-card" href="vrtracker.html">
           <div class="tutorial-thumb">
-            <img src="images/vrgaze.PNG" alt="VR headset eye tracking tutorial" loading="lazy" />
+            <img src="images/vrgaze.jpg" alt="VR headset eye tracking tutorial" loading="lazy" />
           </div>
           <h3>VR Headset Eye Tracking</h3>
         </a>
 
         <a class="tutorial-card" href="headgaze.html">
           <div class="tutorial-thumb">
-            <img src="images/headgaze.png" alt="Head gaze web camera tutorial" loading="lazy" />
+            <img src="images/headgaze.jpg" alt="Head gaze web camera tutorial" loading="lazy" />
           </div>
           <h3>Webcam Head and Gaze Tracking</h3>
         </a>
@@ -173,7 +212,7 @@
 
         <article class="research-row">
           <div class="research-thumb">
-            <img src="images/objectrepair.png" alt="Object tracking research" loading="lazy" />
+            <img src="images/objectrepair.jpg" alt="Object tracking research" loading="lazy" />
           </div>
 
           <div class="research-content">
@@ -194,7 +233,7 @@
 
         <article class="research-row">
           <div class="research-thumb">
-            <img src="images/eyeshadows.png" alt="Fast selection with eye tracking for AR VR MR" loading="lazy" />
+            <img src="images/eyeshadows.jpg" alt="Fast selection with eye tracking for AR VR MR" loading="lazy" />
           </div>
 
           <div class="research-content">
@@ -215,7 +254,7 @@
 
         <article class="research-row">
           <div class="research-thumb">
-            <img src="images/gaze.png" alt="3D gaze tracker project" loading="lazy" />
+            <img src="images/gaze.jpg" alt="3D gaze tracker project" loading="lazy" />
           </div>
 
           <div class="research-content">
@@ -254,7 +293,7 @@
 
         <article class="research-row">
           <div class="research-thumb">
-            <img src="images/deficits.png" alt="Eye tracked visual deficits simulation in VR" loading="lazy" />
+            <img src="images/deficits.jpg" alt="Eye tracked visual deficits simulation in VR" loading="lazy" />
           </div>
 
           <div class="research-content">
@@ -273,7 +312,7 @@
 
         <article class="research-row">
           <div class="research-thumb">
-            <img src="images/macular.png" alt="Macular degeneration simulation and assistance interface" loading="lazy" />
+            <img src="images/macular.jpg" alt="Macular degeneration simulation and assistance interface" loading="lazy" />
           </div>
 
           <div class="research-content">

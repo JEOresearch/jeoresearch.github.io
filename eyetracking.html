@@ -23,6 +23,73 @@
 
   <link rel="canonical" href="https://www.jeoresearch.com/eyetracking.html" />
   <link rel="stylesheet" href="style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.jeoresearch.com/eyetracking.html#webpage",
+        "url": "https://www.jeoresearch.com/eyetracking.html",
+        "name": "DIY Eye Tracking with a Front Camera",
+        "isPartOf": {
+          "@id": "https://www.jeoresearch.com/#website"
+        },
+        "author": {
+          "@id": "https://www.jeoresearch.com/#person"
+        },
+        "breadcrumb": {
+          "@id": "https://www.jeoresearch.com/eyetracking.html#breadcrumb"
+        },
+        "mainEntity": {
+          "@id": "https://www.jeoresearch.com/eyetracking.html#article"
+        }
+      },
+      {
+        "@type": "TechArticle",
+        "@id": "https://www.jeoresearch.com/eyetracking.html#article",
+        "headline": "DIY Eye Tracking with a Front Camera",
+        "author": {
+          "@id": "https://www.jeoresearch.com/#person"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.jeoresearch.com/eyetracking.html#webpage"
+        },
+        "about": {
+          "@id": "https://www.jeoresearch.com/eyetracking.html#software"
+        }
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://www.jeoresearch.com/eyetracking.html#software",
+        "name": "FrontCameraTracker",
+        "codeRepository": "https://github.com/JEOresearch/EyeTracker/tree/main/FrontCameraTracker",
+        "programmingLanguage": "Python",
+        "author": {
+          "@id": "https://www.jeoresearch.com/#person"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.jeoresearch.com/eyetracking.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.jeoresearch.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Front-Camera Eye Tracking",
+            "item": "https://www.jeoresearch.com/eyetracking.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -33,7 +100,10 @@
       <nav class="nav">
         <div class="nav-dropdown">
           <a class="nav-trigger" href="index.html">Home</a>
-          <div class="nav-menu"><a href="aboutme.html">About Me</a></div>
+          <div class="nav-menu">
+            <a href="aboutme.html">About Me</a>
+            <a href="news.html">Appearances</a>
+          </div>
         </div>
         <div class="nav-dropdown">
           <button class="nav-trigger" type="button">EyeTracking</button>
@@ -62,6 +132,7 @@
     <section class="hero">
       <div class="hero-text">
         <h1>DIY Eye Tracking with a Front Camera</h1>
+        <p class="eyebrow">By <a href="aboutme.html">Jason Orlosky, PhD</a></p>
 
         <p class="intro">
           This tutorial shows how to build a simple front-camera eye tracker
@@ -80,8 +151,8 @@
       </div>
 
       <div class="hero-image">
-        <a href="images/frontcamera.png" target="_blank" rel="noopener">
-          <img src="images/frontcamera.png" alt="Front camera eye tracking tutorial" />
+        <a href="images/frontcamera.jpg" target="_blank" rel="noopener">
+          <img src="images/frontcamera.jpg" alt="Front camera eye tracking tutorial" />
         </a>
       </div>
       <p class="channel-support">
@@ -115,26 +186,26 @@
 
         <div class="step-images">
           <figure>
-            <a href="images/frontcamera/gc0308.png" target="_blank" rel="noopener">
-              <img src="images/frontcamera/gc0308.png" alt="GC0308 eye tracking camera" loading="lazy" />
+            <a href="images/frontcamera/gc0308.jpg" target="_blank" rel="noopener">
+              <img src="images/frontcamera/gc0308.jpg" alt="GC0308 eye tracking camera" loading="lazy" />
             </a>
             <figcaption>GC0308 IR camera</figcaption>
           </figure>
           <figure>
-            <a href="images/frontcamera/boardcamera.png" target="_blank" rel="noopener">
-              <img src="images/frontcamera/boardcamera.png" alt="Low-cost board camera for DIY eye tracking" loading="lazy" />
+            <a href="images/frontcamera/boardcamera.jpg" target="_blank" rel="noopener">
+              <img src="images/frontcamera/boardcamera.jpg" alt="Low-cost board camera for DIY eye tracking" loading="lazy" />
             </a>
             <figcaption>Board (environment) camera</figcaption>
           </figure>
           <figure>
-            <a href="images/frontcamera/nolens.png" target="_blank" rel="noopener">
-              <img src="images/frontcamera/nolens.png" alt="Glasses frame with lenses removed" loading="lazy" />
+            <a href="images/frontcamera/nolens.jpg" target="_blank" rel="noopener">
+              <img src="images/frontcamera/nolens.jpg" alt="Glasses frame with lenses removed" loading="lazy" />
             </a>
             <figcaption>Glasses frame with no lenses</figcaption>
           </figure>
           <figure>
-            <a href="images/frontcamera/wire.png" target="_blank" rel="noopener">
-              <img src="images/frontcamera/wire.png" alt="Soft wire for mounting the camera" loading="lazy" />
+            <a href="images/frontcamera/wire.jpg" target="_blank" rel="noopener">
+              <img src="images/frontcamera/wire.jpg" alt="Soft wire for mounting the camera" loading="lazy" />
             </a>
             <figcaption>Soft wire</figcaption>
           </figure>
@@ -156,14 +227,14 @@
 
         <div class="step-images">
           <figure>
-            <a href="images/frontcamera/camerasmounted.png" target="_blank" rel="noopener">
-              <img src="images/frontcamera/camerasmounted.png" alt="Eye tracking cameras mounted to glasses" loading="lazy" />
+            <a href="images/frontcamera/camerasmounted.jpg" target="_blank" rel="noopener">
+              <img src="images/frontcamera/camerasmounted.jpg" alt="Eye tracking cameras mounted to glasses" loading="lazy" />
             </a>
             <figcaption>Both cameras mounted</figcaption>
           </figure>
           <figure>
-            <a href="images/frontcamera/eyeinview.png" target="_blank" rel="noopener">
-              <img src="images/frontcamera/eyeinview.png" alt="Eye fully visible in the mounted camera view" loading="lazy" />
+            <a href="images/frontcamera/eyeinview.jpg" target="_blank" rel="noopener">
+              <img src="images/frontcamera/eyeinview.jpg" alt="Eye fully visible in the mounted camera view" loading="lazy" />
             </a>
             <figcaption>Adjusted mount with the eye fully visible</figcaption>
           </figure>
@@ -209,8 +280,8 @@
 
         <div class="step-images">
           <figure>
-            <a href="images/frontcamera/camerabutton.png" target="_blank" rel="noopener">
-              <img src="images/frontcamera/camerabutton.png" alt="Input source window with Start Camera button" loading="lazy" />
+            <a href="images/frontcamera/camerabutton.jpg" target="_blank" rel="noopener">
+              <img src="images/frontcamera/camerabutton.jpg" alt="Input source window with Start Camera button" loading="lazy" />
             </a>
             <figcaption>Input-source window with the camera dropdown and Start Camera button.</figcaption>
           </figure>
@@ -231,20 +302,20 @@
 
         <div class="step-images">
           <figure>
-            <a href="images/frontcamera/eyevisible.png" target="_blank" rel="noopener">
-              <img src="images/frontcamera/eyevisible.png" alt="Eye clearly visible in the OpenCV camera window" loading="lazy" />
+            <a href="images/frontcamera/eyevisible.jpg" target="_blank" rel="noopener">
+              <img src="images/frontcamera/eyevisible.jpg" alt="Eye clearly visible in the OpenCV camera window" loading="lazy" />
             </a>
             <figcaption>Eye centered and clearly visible in the OpenCV camera window.</figcaption>
           </figure>
           <figure>
-            <a href="images/frontcamera/thresholding.png" target="_blank" rel="noopener">
-              <img src="images/frontcamera/thresholding.png" alt="Pupil region isolated by thresholding" loading="lazy" />
+            <a href="images/frontcamera/thresholding.jpg" target="_blank" rel="noopener">
+              <img src="images/frontcamera/thresholding.jpg" alt="Pupil region isolated by thresholding" loading="lazy" />
             </a>
             <figcaption>Dark pupil region isolated by thresholding.</figcaption>
           </figure>
           <figure>
-            <a href="images/frontcamera/gazeray.png" target="_blank" rel="noopener">
-              <img src="images/frontcamera/gazeray.png" alt="Pupil ellipse eye center and gaze line overlay" loading="lazy" />
+            <a href="images/frontcamera/gazeray.jpg" target="_blank" rel="noopener">
+              <img src="images/frontcamera/gazeray.jpg" alt="Pupil ellipse eye center and gaze line overlay" loading="lazy" />
             </a>
             <figcaption>Pupil ellipse, estimated eye center, and gaze line overlay.</figcaption>
           </figure>

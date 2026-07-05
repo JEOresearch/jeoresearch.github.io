@@ -23,6 +23,76 @@
 
   <link rel="canonical" href="https://www.jeoresearch.com/vrtracker.html" />
   <link rel="stylesheet" href="style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.jeoresearch.com/vrtracker.html#webpage",
+        "url": "https://www.jeoresearch.com/vrtracker.html",
+        "name": "DIY Eye Tracking for VR",
+        "isPartOf": {
+          "@id": "https://www.jeoresearch.com/#website"
+        },
+        "author": {
+          "@id": "https://www.jeoresearch.com/#person"
+        },
+        "breadcrumb": {
+          "@id": "https://www.jeoresearch.com/vrtracker.html#breadcrumb"
+        },
+        "mainEntity": {
+          "@id": "https://www.jeoresearch.com/vrtracker.html#article"
+        }
+      },
+      {
+        "@type": "TechArticle",
+        "@id": "https://www.jeoresearch.com/vrtracker.html#article",
+        "headline": "Eye Tracking with a VR Headset",
+        "author": {
+          "@id": "https://www.jeoresearch.com/#person"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.jeoresearch.com/vrtracker.html#webpage"
+        },
+        "about": {
+          "@id": "https://www.jeoresearch.com/vrtracker.html#software"
+        }
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://www.jeoresearch.com/vrtracker.html#software",
+        "name": "VR Eye Tracker",
+        "codeRepository": "https://github.com/JEOresearch/EyeTracker/tree/main/VREyeTracker",
+        "programmingLanguage": [
+          "Python",
+          "C#"
+        ],
+        "author": {
+          "@id": "https://www.jeoresearch.com/#person"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.jeoresearch.com/vrtracker.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.jeoresearch.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "VR Eye Tracking",
+            "item": "https://www.jeoresearch.com/vrtracker.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -33,7 +103,10 @@
       <nav class="nav">
         <div class="nav-dropdown">
           <a class="nav-trigger" href="index.html">Home</a>
-          <div class="nav-menu"><a href="aboutme.html">About Me</a></div>
+          <div class="nav-menu">
+            <a href="aboutme.html">About Me</a>
+            <a href="news.html">Appearances</a>
+          </div>
         </div>
         <div class="nav-dropdown">
           <button class="nav-trigger" type="button">EyeTracking</button>
@@ -62,6 +135,7 @@
     <section class="hero">
       <div class="hero-text">
         <h1>Eye Tracking with a VR Headset</h1>
+        <p class="eyebrow">By <a href="aboutme.html">Jason Orlosky, PhD</a></p>
 
         <p class="intro">
           This tutorial shows how to add low-cost eye tracking to a VR or AR
@@ -80,8 +154,8 @@
       </div>
 
       <div class="hero-image">
-        <a href="images/vrgaze.PNG" target="_blank" rel="noopener">
-          <img src="images/vrgaze.PNG" alt="VR headset eye tracking tutorial" />
+        <a href="images/vrgaze.jpg" target="_blank" rel="noopener">
+          <img src="images/vrgaze.jpg" alt="VR headset eye tracking tutorial" />
         </a>
       </div>
       <p class="channel-support">
@@ -120,8 +194,8 @@
 
         <div class="step-images">
           <figure>
-            <a href="images/frontcamera/gc0308.png" target="_blank" rel="noopener">
-              <img src="images/frontcamera/gc0308.png" alt="GC0308 eye tracking camera" loading="lazy" />
+            <a href="images/frontcamera/gc0308.jpg" target="_blank" rel="noopener">
+              <img src="images/frontcamera/gc0308.jpg" alt="GC0308 eye tracking camera" loading="lazy" />
             </a>
             <figcaption>GC0308 IR camera</figcaption>
           </figure>
@@ -163,8 +237,8 @@
             <figcaption>Camera lens adjusted for eye distance</figcaption>
           </figure>
           <figure>
-            <a href="images/frontcamera/eyevisible.png" target="_blank" rel="noopener">
-              <img src="images/frontcamera/eyevisible.png" alt="Eye clearly visible in the camera view" loading="lazy" />
+            <a href="images/frontcamera/eyevisible.jpg" target="_blank" rel="noopener">
+              <img src="images/frontcamera/eyevisible.jpg" alt="Eye clearly visible in the camera view" loading="lazy" />
             </a>
             <figcaption>Eye clearly visible in the camera view</figcaption>
           </figure>

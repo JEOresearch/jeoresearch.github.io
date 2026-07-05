@@ -12,6 +12,7 @@
     gtag('js', new Date());
     gtag('config', 'G-WZ7XJMTZF5');
   </script>
+  <script src="analytics.js" defer></script>
 
   <title>ARVR Lab Members | JEO Research</title>
 
@@ -22,6 +23,49 @@
 
   <link rel="canonical" href="https://www.jeoresearch.com/members.html" />
   <link rel="stylesheet" href="style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://www.jeoresearch.com/members.html#webpage",
+        "url": "https://www.jeoresearch.com/members.html",
+        "name": "ARVR Lab Team",
+        "isPartOf": {
+          "@id": "https://www.jeoresearch.com/#website"
+        },
+        "author": {
+          "@id": "https://www.jeoresearch.com/#person"
+        },
+        "about": {
+          "@id": "https://www.jeoresearch.com/#arvr-lab"
+        },
+        "breadcrumb": {
+          "@id": "https://www.jeoresearch.com/members.html#breadcrumb"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.jeoresearch.com/members.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.jeoresearch.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "ARVR Lab Members",
+            "item": "https://www.jeoresearch.com/members.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -32,7 +76,10 @@
       <nav class="nav">
         <div class="nav-dropdown">
           <a class="nav-trigger" href="index.html">Home</a>
-          <div class="nav-menu"><a href="aboutme.html">About Me</a></div>
+          <div class="nav-menu">
+            <a href="aboutme.html">About Me</a>
+            <a href="news.html">Appearances</a>
+          </div>
         </div>
         <div class="nav-dropdown">
           <button class="nav-trigger" type="button">EyeTracking</button>
@@ -85,7 +132,7 @@
       <div class="team-list">
         <article class="team-member">
           <div class="member-photo">
-            <img src="images/members/lynseysteinberg.PNG" alt="Lynsey Steinberg" loading="lazy" />
+            <img src="images/members/lynseysteinberg.jpg" alt="Lynsey Steinberg" loading="lazy" />
           </div>
           <div>
             <h3>Lynsey Steinberg</h3>
@@ -146,7 +193,7 @@
 
         <article class="team-member">
           <div class="member-photo">
-            <img src="images/members/jeffbenson.PNG" alt="Jeff Benson" loading="lazy" />
+            <img src="images/members/jeffbenson.jpg" alt="Jeff Benson" loading="lazy" />
           </div>
           <div>
             <h3>Jeff Benson, NSF Fellow</h3>
