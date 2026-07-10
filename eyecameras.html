@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WZ7XJMTZF5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WZ7XJMTZF5');
+  </script>
+  <script src="analytics.js" defer></script>
+
+  <title>DIY Eye Tracking Cameras | JEO Research</title>
+
+  <meta
+    name="description"
+    content="Compare camera options for DIY eye tracking builds, including the GC0308, OV9281 module, and Pupil Labs camera."
+  />
+
+  <link rel="canonical" href="https://www.jeoresearch.com/eyecameras.html" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html"><span class="brand-jeo">JEO</span><span class="brand-research">research</span></a>
+
+      <nav class="nav">
+        <div class="nav-dropdown">
+          <a class="nav-trigger" href="index.html">Home▾</a>
+          <div class="nav-menu">
+            <a href="aboutme.html">About Me</a>
+            <a href="news.html">Appearances</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-trigger" type="button">EyeTracking▾</button>
+          <div class="nav-menu">
+            <a href="eyecameras.html">Camera Comparison</a>
+            <a href="eyetracking.html">DIY Eye Tracker (Glasses)</a>
+            <a href="vrtracker.html">DIY Eye Tracker (VR)</a>
+            <a href="headgaze.html">DIY Head Tracker (Webcam)</a>
+            <a href="irsafety.html">Infrared Safety</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a class="nav-trigger" href="ccslab.html">ARVRLab▾</a>
+          <div class="nav-menu">
+            <a href="ccslab.html#apply">Apply</a>
+            <a href="ccslab/team.html">Members</a>
+            <a href="students/timelines.html">Timelines</a>
+            <a href="ccslab/xr.html">XR Research</a>
+            <a href="ccslab/intelligent.html">Intelligent Agents</a>
+          </div>
+        </div>
+        <a href="research.html">Publications</a>
+        <a href="https://github.com/JEOresearch">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page camera-page">
+    <section class="hero guide-hero">
+      <div class="hero-text">
+        <h1>DIY Eye Tracking Cameras</h1>
+        <p class="intro">
+          This page provides an objective comparison of DIY eye tracking cameras and research eye tracking builds. Be sure to check <a href="irsafety.html">infrared irradiance values</a> with an <a href="https://amzn.to/4jCV4yy" data-product="Infrared Irradiance Meter" data-category="Accessory">irradiance meter</a> before using any of these setups in practice. 
+        </p>
+      </div>
+    </section>
+
+    <section class="section camera-comparison">
+      <h2>Camera List and Comparison (sorted by price):</h2>
+
+      <article class="camera-section">
+        <div class="camera-overview">
+          <div class="camera-image">
+            <a href="https://amzn.to/41x8p2W" data-product="GC0308 Eye Tracking Camera" data-category="Camera">
+              <img src="images/gc0308b.jpg" alt="GC0308 infrared camera for DIY eye tracking" loading="lazy" />
+            </a>
+          </div>
+          <div class="camera-copy">
+            <h3><a href="https://amzn.to/41x8p2W" data-product="GC0308 Eye Tracking Camera" data-category="Camera">GC0308 Infrared Camera ($17)</a></h3>
+            <p>This is one of the least expensive cameras available that works practically well for near-eye tracking. It can be <a href="eyetracking.html">attached to glasses</a>, used in <a href="vrtracker.html">AR/VR displays</a>, and is UVC (USB) plug-and-play. Though tracking accuracy is slightly lower than with more expensive cameras, it is usable for most interactive applications.</p>
+            <div class="camera-points">
+              <div>
+                <h4>Pros</h4>
+                <ul>
+                  <li>Inexpensive</li>
+                  <li>Small form-factor</li>
+                  <li>UVC/USB Plug-and-play</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Cons</h4>
+                <ul>
+                  <li>Red-eye effect affects accuracy</li>
+                  <li>One cable needed per camera</li>
+                  <li>Heat can be a problem if enclosed</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="camera-section">
+        <div class="camera-overview">
+          <div class="camera-image">
+            <a href="https://amzn.to/3D8faQB" data-product="OV9281 Camera Module" data-category="Camera">
+              <img src="images/OV9281.jpg" alt="OV9281 camera module for DIY eye tracking" loading="lazy" />
+            </a>
+          </div>
+          <div class="camera-copy">
+            <h3><a href="https://amzn.to/3D8faQB" data-product="OV9281 Camera Module" data-category="Camera">OV9281 Camera Module ($100)</a></h3>
+            <p>This camera has significantly higher resolution than others and is customizable with six LED slots. Take care to verify irradiance after installation. Though its lens filter must be <a href="https://youtu.be/TSvbKA3uzmA">removed manually</a>, the image and focusable lens are well suited for near-eye and webcam-based eye tracking algorithms.</p>
+            <div class="camera-points">
+              <div>
+                <h4>Pros</h4>
+                <ul>
+                  <li>High quality image</li>
+                  <li>Customizable LEDs</li>
+                  <li>UVC/USB Plug-and-play</li>
+                  <li>Can be used for near-eye and webcam-based tracking</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Cons</h4>
+                <ul>
+                  <li>Large form factor</li>
+                  <li>LEDs require soldering and irradiance verification</li>
+                  <li>IR filter must be removed</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="camera-section">
+        <div class="camera-overview">
+          <div class="camera-image">
+            <a href="https://pupil-labs.com/products/core/accessories">
+              <img src="images/pupillabs.jpg" alt="Pupil Labs camera for DIY eye tracking" loading="lazy" />
+            </a>
+          </div>
+          <div class="camera-copy">
+            <h3><a href="https://pupil-labs.com/products/core/accessories">Pupil Labs Camera €685 (~$800)</a></h3>
+            <p>Unlike the camera modules above, this is a camera that is specifically designed for eye tracking with Pupil Labs software. Though it requires a custom driver, it provides 200hz eye tracking and has an adjustable arm.</p>
+            <div class="camera-points">
+              <div>
+                <h4>Pros</h4>
+                <ul>
+                  <li>Designed for eye tracking</li>
+                  <li>Adjustable arm</li>
+                  <li>High framerate (200hz)</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Cons</h4>
+                <ul>
+                  <li>Relatively expensive</li>
+                  <li>Requires additional drivers</li>
+                  <li>Designed for use with Pupil Labs software</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="camera-section">
+        <div class="camera-overview">
+          <div class="camera-image">
+            <a href="https://www.tobii.com/products/eye-trackers/wearables/tobii-pro-glasses-3">
+              <img src="images/tobiipro.jpg" alt="Tobii Pro eye tracking camera" loading="lazy" />
+            </a>
+          </div>
+          <div class="camera-copy">
+            <h3><a href="https://www.tobii.com/products/eye-trackers/wearables/tobii-pro-glasses-3">Tobii Pro ($10,000 - $15,000)</a></h3>
+            <p>The Tobii pro is a professional eye tracking system that is integrated into a set of glasses. Though the system is extremely expensive and has some restrictions on usage through its license-based subscription, it is the most accurate system available when extreme precision is required.</p>
+            <div class="camera-points">
+              <div>
+                <h4>Pros</h4>
+                <ul>
+                  <li>Very accurate</li>
+                  <li>All-in-one package</li>
+                  <li>Comprehensive software suite</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Cons</h4>
+                <ul>
+                  <li>EXTREMELY expensive</li>
+                  <li>No access to eye camera images</li>
+                  <li>Licence-based usage with restrictions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>JEOresearch LLC</p>
+    <p>This website provides educational information about eye tracking and related technologies. Any hardware modifications, software, or procedures described are performed at the user's own risk. Always follow applicable manufacturer instructions and safety guidelines. All open-source software is released under the MIT License.</p>
+  </footer>
+</body>
+</html>
