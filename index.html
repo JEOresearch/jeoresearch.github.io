@@ -43,6 +43,9 @@
           "name": "Augusta University",
           "url": "https://www.augusta.edu/"
         },
+        "affiliation": {
+          "@id": "https://www.jeoresearch.com/#organization"
+        },
         "knowsAbout": [
           "Eye tracking",
           "Augmented reality",
@@ -66,6 +69,17 @@
         ]
       },
       {
+        "@type": "Organization",
+        "@id": "https://www.jeoresearch.com/#organization",
+        "name": "JEO Research",
+        "alternateName": "JEOresearch",
+        "legalName": "JEOresearch LLC",
+        "url": "https://www.jeoresearch.com/",
+        "founder": {
+          "@id": "https://www.jeoresearch.com/#person"
+        }
+      },
+      {
         "@type": "WebSite",
         "@id": "https://www.jeoresearch.com/#website",
         "url": "https://www.jeoresearch.com/",
@@ -73,6 +87,9 @@
         "alternateName": "JEOresearch",
         "creator": {
           "@id": "https://www.jeoresearch.com/#person"
+        },
+        "publisher": {
+          "@id": "https://www.jeoresearch.com/#organization"
         }
       },
       {
@@ -83,8 +100,12 @@
         "isPartOf": {
           "@id": "https://www.jeoresearch.com/#website"
         },
-        "about": {
-          "@id": "https://www.jeoresearch.com/#person"
+        "about": [
+          { "@id": "https://www.jeoresearch.com/#person" },
+          { "@id": "https://www.jeoresearch.com/#organization" }
+        ],
+        "publisher": {
+          "@id": "https://www.jeoresearch.com/#organization"
         },
         "primaryImageOfPage": {
           "@id": "https://www.jeoresearch.com/#primaryimage"
