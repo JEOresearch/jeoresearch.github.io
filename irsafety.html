@@ -149,6 +149,8 @@
         <div class="profile-links" aria-label="Related resources">
           <a href="#evaluating-your-ir-setup">Evaluating your IR Setup</a>
           <span>|</span>
+          <a href="#common-eye-tracker-irradiance">Irradiance for Common Eye Trackers</a>
+          <span>|</span>
           <a href="https://youtu.be/z30AyH_1XVE">Reference Video</a>
           <span>|</span>
           <a href="https://webstore.iec.ch/en/publication/7076">IEC 62471 Safety Standard</a>
@@ -171,39 +173,24 @@
       <h2>Understanding Infrared LED Safety</h2>
 
       <article class="tutorial-step">
-        <h3>Why infrared output is worth evaluating</h3>
-
-        <p>
-          Infrared lighting is a practical and widely used part of many
-          commercial eye trackers. Most low-power systems are designed to keep
-          exposure within appropriate limits. Still, infrared sources can vary,
-          and strong exposure can heat tissue in the eye. Because
-          near-infrared light is invisible, measuring an unfamiliar setup is
-          more reliable than judging its brightness by sight or camera phone.
-        </p>
-
-
-      </article>
-
-      <article class="tutorial-step">
-        <h3>Understanding practical exposure limits</h3>
+        <h3>Practical exposure limits</h3>
 
         <p>
           Irradiance describes radiant power arriving at a surface per unit
           area. It is commonly measured in watts per square meter
           (<code>W/m&sup2;</code>) or milliwatts per square centimeter
-          (<code>mW/cm&sup2;</code>).
+          (<code>mW/cm&sup2;</code>), and is a useful benchmark for evaluating infrared (IR) light sources.
         </p>
 
-        <pre><code>10 W/m&sup2; (1 mW/cm&sup2;)</code></pre>
+        <pre><code>For reference: 100 W/m&sup2; = 10 mW/cm&sup2;</code></pre>
 
         <p>
           <a href="https://webstore.iec.ch/en/publication/7076">IEC 62471</a>
           provides a framework for evaluating the photobiological
-          safety of lamps and lamp systems, including infrared sources. A value
-          such as <code>100 W/m&sup2; (10 mW/cm&sup2;)</code> can be useful as
-          a simplified screening reference in a demonstration, but it is not a
-          universal pass-or-fail limit for every infrared LED.
+          safety of lamps and lamp systems, including infrared sources. Per this framework, a value
+          of <code>100 W/m&sup2; (10 mW/cm&sup2;)</code> can be useful as
+          a simplified screening reference for safe use, but this is not a
+          universal pass-or-fail limit for every IR LED.
         </p>
 
         <p>
@@ -217,31 +204,124 @@
       </article>
 
       <article class="tutorial-step">
-        <h3>Example readings from common light sources</h3>
+        <h3 id="common-eye-tracker-irradiance">Irradiances for Common Eye Tracking Devices</h3>
 
         <p>
-          An infrared <a href="https://amzn.to/4jCV4yy" data-product="Infrared Irradiance Meter" data-category="Accessory">irradiance meter</a>
-          can help compare sources under a consistent test setup. In one
-          informal experiment, a dark room produced a near-zero reading, a
-          monitor measured about <code>1 W/m&sup2; (0.1 mW/cm&sup2;)</code>,
-          and a fireplace measured approximately
-          <code>10-15 W/m&sup2; (1-1.5 mW/cm&sup2;)</code>.
+          For reference, I tested multiple eye-tracking devices with a Melles Griot
+          power/energy meter and an <a href="https://amzn.to/4jCV4yy" data-product="Infrared Irradiance Meter" data-category="Accessory">NIR irradiance meter</a> to benchmark their respective irradiance in comparison with the IEC threshold. Individual LEDs were placed in front of the Melles Griot sensor aperture (1cm diameter sensor at 1cm distance), and I used the NIR irradiance meter to measure each device's complete LED array (per eye) at 3 cm. The values below represent the highest values observed during the tests. Note that the Melles power meter measures the entire light spectrum, not just NIR. 
+          
+        </p>
+        <p>
+        Sorted from least to greatest, with green values under the IEC threshold:
+        </p>
+
+        <div class="irradiance-table-wrap" role="region" aria-label="Irradiance measurements for common eye tracking devices" tabindex="0">
+          <table class="irradiance-table">
+            <colgroup>
+              <col class="irradiance-label-col" />
+              <col span="4" class="irradiance-standard-col" />
+              <col class="irradiance-pixel-col" />
+              <col class="irradiance-narrow-wide-col" />
+              <col class="irradiance-medium-col" />
+              <col class="irradiance-narrow-wide-col" />
+              <col class="irradiance-standard-col" />
+              <col class="irradiance-small-col" />
+              <col class="irradiance-medium-wide-col" />
+              <col class="irradiance-pixel-col" />
+              <col class="irradiance-narrow-col" />
+              <col class="irradiance-units-col" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">incandescent<br />lighting</th>
+                <th scope="col">Window with<br />UV-cut film</th>
+                <th scope="col">Meta Quest<br />Pro</th>
+                <th scope="col">HTC Vive<br />pro Eye</th>
+                <th scope="col">Pixel 9<br />flashlight<br />min brightness<br />(non-IR)</th>
+                <th scope="col">OV9281</th>
+                <th scope="col">Hololens 2</th>
+                <th scope="col">GC0308</th>
+                <th scope="col">GC0308<br />custom</th>
+                <th scope="col">Pupil<br />Labs</th>
+                <th scope="col">IEC<br />Limit</th>
+                <th scope="col">Pixel 9<br />flashlight<br />max brightness<br />(non-IR)</th>
+                <th scope="col">IR<br />torch</th>
+                <th scope="col">Units</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="meter-row">
+                <th scope="row">Melles Griot<br />Power/Energy<br />Meter @1cm<br />single LED,<br />1cm diameter<br />sensor</th>
+                <td>0.03</td><td>0.13</td><td>0.03</td><td>0.04</td><td>0.47</td>
+                <td>0.25</td><td>0.06</td><td>0.38</td><td>0.46</td><td>0.63</td>
+                <td>NA</td><td>16.18</td><td>5.2</td><td></td>
+              </tr>
+              <tr>
+                <th scope="row">#LEDs per eye</th>
+                <td>1</td><td>1</td><td>9</td><td>9</td><td>1</td><td>2</td><td>11</td>
+                <td>2</td><td>2</td><td>2</td><td>NA</td><td>1</td><td>8</td><td></td>
+              </tr>
+              <tr>
+                <th scope="row">Multiplied by<br /># LEDS for<br />Melles Griot</th>
+                <td class="benchmark-blue">0.03</td><td class="benchmark-blue">0.13</td>
+                <td class="benchmark-blue">0.27</td><td class="benchmark-blue">0.36</td>
+                <td class="benchmark-blue">0.47</td><td class="benchmark-blue">0.50</td>
+                <td class="benchmark-blue">0.66</td><td class="benchmark-blue">0.76</td>
+                <td class="benchmark-blue">0.92</td><td class="benchmark-blue">1.26</td>
+                <td class="benchmark-threshold">10.00</td><td class="benchmark-high">16.18</td>
+                <td class="benchmark-high">41.60</td><td>mW</td>
+              </tr>
+              <tr>
+                <th scope="row">All LEDs via<br />VBNIR meter<br />@ 3cm</th>
+                <td class="benchmark-blue">0.00</td><td class="benchmark-blue">0.14</td>
+                <td class="benchmark-blue">0.16</td><td class="benchmark-blue">0.17</td>
+                <td class="benchmark-blue">0.30</td><td class="benchmark-blue">0.24</td>
+                <td class="benchmark-blue">0.20</td><td class="benchmark-blue">0.27</td>
+                <td class="benchmark-blue">0.31</td><td class="benchmark-blue">0.35</td>
+                <td class="benchmark-threshold">10.00</td><td class="benchmark-high">18.62</td>
+                <td class="benchmark-high">12.53</td><td>mW/cm<sup>2</sup></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="tutorial-step">
+        <p>
+          Though there is some variation in irradiance values, both meters produce relatively similar output values for each device, giving us practical evidence as to which devices are safe per the IEC threshold. 
+        </p>
+
+      </article>
+
+      
+      <article class="tutorial-step">
+        <h3 id="evaluating-your-ir-setup">How to evaluate your own infrared emitter</h3>
+
+        <p>
+          Use an <a href="https://amzn.to/4jCV4yy" data-product="Infrared Irradiance Meter" data-category="Accessory">irradiance meter</a> such as the one in the image below
+          to measure the device in its intended configuration, not only
+          the LED by itself. It is best to have a reference LED and to 
+          test at the closest realistic viewing distance. A repeatable
+          measurement provides useful reassurance that the setup is behaving
+          as intended.
         </p>
 
         <p>
-          Indoor daylight varies substantially with the room and the direction
-          of light. Irradiance readings near windows range from several watts per
-          square meter to more than
-          <code>100 W/m&sup2; (10 mW/cm&sup2;)</code>. Outdoor daylight
-          produces much higher meter readings in the 500+ W/m&sup2; (50 mW/cm&sup2;) 
-          range, especially in direct sunlight.
-          These examples show why distance, direction, environment, and meter
-          range should be recorded with every measurement.
+          In the following image, I evaluate the pupil labs camera against 
+          the GC0308 camera by holding both cameras directly over the meter sensor at the same distance. These were taken within one minute of each other.
         </p>
 
-        <p>
-          Do not look directly at the sun!
-        </p>
+        <figure class="comparison-image">
+          <a href="images/ircomparison.jpg" target="_blank" rel="noopener">
+            <img
+              src="images/ircomparison.jpg"
+              alt="Pupil Labs and GC0308 cameras positioned for irradiance measurements"
+            />
+          </a>
+          <figcaption>Pupil labs and GC0308 irradiance measurements</figcaption>
+        </figure>
+
       </article>
 
       <article class="tutorial-step">
@@ -288,34 +368,6 @@ Painted flat-top LED:  approximately 1-2 W/m&sup2; (0.1-0.2 mW/cm&sup2;)</code><
         </p>
       </article>
 
-      <article class="tutorial-step">
-        <h3 id="evaluating-your-ir-setup">How to evaluate an infrared emitter</h3>
-
-        <p>
-          Use an <a href="https://amzn.to/4jCV4yy" data-product="Infrared Irradiance Meter" data-category="Accessory">irradiance meter</a> such as the one in the image below
-          to measure the device in its intended configuration, not only
-          the LED by itself. It is best to have a reference LED and to 
-          test at the closest realistic viewing distance. A repeatable
-          measurement provides useful reassurance that the setup is behaving
-          as intended.
-        </p>
-
-        <p>
-          In the following image, I evaluate the pupil labs camera against 
-          the GC0308 camera by holding both cameras directly over the meter sensor at the same distance. These were taken within one minute of each other.
-        </p>
-
-        <figure class="comparison-image">
-          <a href="images/ircomparison.jpg" target="_blank" rel="noopener">
-            <img
-              src="images/ircomparison.jpg"
-              alt="Pupil Labs and GC0308 cameras positioned for irradiance measurements"
-            />
-          </a>
-          <figcaption>Pupil labs and GC0308 irradiance measurements</figcaption>
-        </figure>
-
-      </article>
 
       <article class="tutorial-step">
         <h3>Key takeaway</h3>
