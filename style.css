@@ -639,6 +639,71 @@ h1 {
   font-size: 0.92rem;
 }
 
+.irradiance-table-wrap {
+  max-width: 100%;
+  margin: 4px 0 18px;
+  overflow-x: auto;
+  border: 0;
+}
+
+.irradiance-table {
+  width: 708px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-family: "Yu Gothic", "Segoe UI", sans-serif;
+  font-size: 10px;
+  line-height: 1.15;
+  color: #000;
+  background: #fff;
+}
+
+.irradiance-table col.irradiance-label-col { width: 72px; }
+.irradiance-table col.irradiance-standard-col { width: 46px; }
+.irradiance-table col.irradiance-narrow-col { width: 38px; }
+.irradiance-table col.irradiance-medium-col { width: 44px; }
+.irradiance-table col.irradiance-small-col { width: 42px; }
+.irradiance-table col.irradiance-units-col { width: 48px; }
+.irradiance-table col.irradiance-pixel-col { width: 54px; }
+.irradiance-table col.irradiance-narrow-wide-col { width: 42px; }
+.irradiance-table col.irradiance-medium-wide-col { width: 42px; }
+
+.irradiance-table th,
+.irradiance-table td {
+  height: 24px;
+  padding: 1px;
+  box-sizing: border-box;
+  border: 0.5px solid #a6a6a6;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 400;
+}
+
+.irradiance-table thead th {
+  height: 72px;
+  overflow-wrap: anywhere;
+}
+
+.irradiance-table .meter-row th,
+.irradiance-table .meter-row td {
+  height: 48px;
+}
+
+.irradiance-table tbody th {
+  white-space: normal;
+}
+
+.irradiance-table .benchmark-blue {
+  background: #e2f0d9;
+}
+
+.irradiance-table .benchmark-threshold {
+  background: #d0cece;
+}
+
+.irradiance-table .benchmark-high {
+  background: #ff5050;
+}
+
 /* Camera comparison */
 
 .camera-comparison {
