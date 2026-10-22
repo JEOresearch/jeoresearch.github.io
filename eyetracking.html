@@ -137,6 +137,12 @@
             <a href="ccslab/intelligent.html">Intelligent Agents</a>
           </div>
         </div>
+        <div class="nav-dropdown">
+          <button class="nav-trigger" type="button">AI&#9660;</button>
+          <div class="nav-menu">
+            <a href="aiguide.html">Guide for AI</a>
+          </div>
+        </div>
         <a href="research.html">Publications</a>
         <a href="https://github.com/JEOresearch">GitHub</a>
       </nav>
@@ -157,7 +163,7 @@
         </p>
 
         <div class="profile-links" aria-label="Tutorial links">
-          <a href="https://youtu.be/Zed2jPgks9s">Video Summary</a>
+          <a href="https://youtu.be/zRpomExswYw">Video Summary</a>
           <span>|</span>
           <a href="https://youtu.be/Gh8LS9erugE">The Math behind the Eye Tracking</a>
           <span>|</span>
@@ -265,7 +271,7 @@
         <h3>Step 3: Install the Python dependencies</h3>
 
         <p>
-          Download <code>Orlosky3DEyeTracker.py</code> and install the required
+          Download <code>Orlosky3DEyeTrackerFrontCamera.py</code> and install the required
           Python packages. The tracker uses OpenCV and NumPy for image
           processing. Tkinter is used for the startup window and is included
           with many Python installations. The optional <code>gl_sphere.py</code>
@@ -282,14 +288,17 @@
 
         <p>
           Open a terminal in the folder containing the script and run it with
-          Python. On startup, the tracker opens a small window titled
-          <code>Select Input Source</code>. Choose your camera from the dropdown
-          and click <code>Start Camera</code>, as shown in Fig. 7. You can also use
-          <code>Browse Video</code> to test the tracker on an existing
-          <code>.mp4</code> or <code>.avi</code> file.
+          Python. The startup window is titled <code>Orlosky 3D Front Camera</code>.
+          Select different camera indexes for <code>Eye Camera</code> and
+          <code>Forward-facing Camera</code>, then click <code>Start Eye Camera</code>
+          and <code>Start Forward-facing Camera</code>. The eye camera should show
+          your eye; the forward-facing camera should show the scene in front of you.
+          Use each camera's <code>flip image</code> checkbox if its view is upside down
+          (this flips vertically). Set the orientation before calibrating.
+          Changing a camera or its flip setting clears the front-camera calibration.
         </p>
 
-        <pre><code>python Orlosky3DEyeTracker.py</code></pre>
+        <pre><code>python Orlosky3DEyeTrackerFrontCamera.py</code></pre>
 
         <p>
           If you found this software/tutorial useful, please consider
@@ -300,10 +309,10 @@
 
         <div class="step-images">
           <figure>
-            <a href="https://github.com/JEOresearch/EyeTracker/tree/main/3DTracker" target="_blank" rel="noopener">
-              <img src="images/frontcamera/camerabutton.jpg" alt="Input source window with Start Camera button" loading="lazy" />
+            <a href="https://github.com/JEOresearch/EyeTracker/tree/main/FrontCameraTracker" target="_blank" rel="noopener">
+              <img src="images/frontcamera/interface.jpg" width="810" height="532" style="max-height: 300px;" alt="Updated tracker interface with separate eye and forward-facing camera controls and calibration button" loading="lazy" />
             </a>
-            <figcaption><a href="https://github.com/JEOresearch/EyeTracker/tree/main/3DTracker">Fig. 7. Input-source window with the camera dropdown and Start Camera button.</a></figcaption>
+            <figcaption><a href="https://github.com/JEOresearch/EyeTracker/tree/main/FrontCameraTracker">Fig. 7. Updated interface with separate camera controls, image flip options, and calibration capture.</a></figcaption>
           </figure>
         </div>
       </article>
@@ -312,13 +321,14 @@
         <h3>Step 5: Position the eye in the camera view</h3>
 
         <p>
-          After clicking <code>Start Camera</code>, adjust the camera until the
+          After starting the eye camera, adjust the camera until the
           eye is clearly visible in the OpenCV window (Fig. 8). The script crops
           the frame, finds the darkest pupil region, and thresholds the image at
           several levels (Fig. 9). It then fits an ellipse to the pupil,
           estimates the eye center from recent pupil rays, and displays the
-          tracking overlay (Fig. 10). In normal use, the tracker self-calibrates
-          to the observed eye position as you move.
+          tracking overlay (Fig. 10). Look around to let the automatic eye-sphere
+          estimation settle before calibrating to the forward-facing view.
+          Press <code>F</code> or check <code>fixed eye sphere</code> to fix the eye sphere as-is. Resuming automatic adjustment with <code>F</code> clears that calibration.
         </p>
 
         <div class="step-images">
@@ -344,31 +354,111 @@
       </article>
 
       <article class="tutorial-step">
-        <h3>Step 6: Read the gaze output</h3>
+        <h3>Step 6: Calibrate gaze to the forward-facing camera</h3>
 
         <p>
-          The OpenCV output window displays the current 3D gaze origin and gaze
-          direction near the bottom of the frame. The script also writes these
-          six values to <code>gaze_vector.txt</code> on each frame: the three
-          origin coordinates followed by the three normalized gaze direction
-          values. Use <code>q</code> to quit, the spacebar to pause, <code>e</code>
-          to toggle ellipse capture, and <code>c</code> to clear captured
-          ellipses.
+          In the
+          <code>External Camera (Gaze)</code> window, move the tip of your finger until it lines up with the red calibration dot in the camera image, then
+          look at your actual fingertip (Fig. 11) without moving your head. Press <code>C</code> or click <code>Capture Calibration Point (C)</code> to capture that gaze direction.
+          Repeat for each of the red dots.
+        </p>
+
+        <p>
+          The red dot
+          then follows your calibrated gaze. If calibration fails, follow the
+          displayed message and repeat the samples. Press <code>C</code> after a
+          completed calibration to begin again at center, or <code>F</code> to
+          clear calibration and resume automatic sphere adjustment. Recalibrate
+          after repositioning the glasses or cameras.
+        </p>
+
+        <div class="step-images">
+          <figure>
+            <img src="images/frontcamera/calibration.jpg" width="1000" height="451" alt="Eye tracking overlay beside a forward-camera view with a fingertip aligned to the red calibration dot" loading="lazy" />
+            <figcaption>Fig. 11. Align your fingertip with the red dot, look at your finger, and press C.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 7: Check accuracy with the target grid</h3>
+
+        <p>
+          After calibration, press <code>G</code> in an OpenCV camera window to
+          show the 5 &times; 5 accuracy grid. Press <code>T</code> once to select
+          the upper-left target. Move your fingertip to the highlighted target
+          in the camera image, look at your finger, and press <code>T</code> again
+          to record a sample and advance. Work left to right across each row,
+          from top to bottom, until all 25 targets are recorded. Both streams
+          must remain running and unpaused.
+        </p>
+
+        <p>
+          Yellow dots are targets, the red ring marks the current target, and
+          black dots show recorded gaze positions (Fig. 12). Each recorded target
+          gets an angular-error label; the mean error appears after the final
+          sample. These estimates assume a <strong>60-degree diagonal field of
+          view</strong> for the forward camera. Set
+          <code>FRONT_DIAGONAL_FOV_DEGREES</code> in the script to match your camera
+          for meaningful degree estimates. Press <code>G</code> to hide and reset
+          the grid, then again to begin a fresh test. The calibration fit RMS
+          measures the calibration samples; this grid checks additional locations.
+        </p>
+
+        <div class="step-images">
+          <figure>
+            <img src="images/frontcamera/accuracy_checker.jpg" width="1000" height="560" alt="Accuracy checker with yellow grid targets, a red ring around the active target, and a black recorded gaze point with angular error" loading="lazy" />
+            <figcaption>Fig. 12. The accuracy grid compares recorded gaze points with 25 targets and reports error in degrees.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="tutorial-step">
+        <h3>Step 8: Read the gaze output and use the controls</h3>
+
+        <p>
+          The eye-tracking window displays the 3D gaze origin and direction.
+          On frames with a computed gaze vector, the script overwrites
+          <code>gaze_vector.txt</code> with six comma-separated values: three origin
+          coordinates followed by three normalized direction components. After
+          calibration, the origin is held at the captured sphere center; the
+          direction remains the eye model's 3D gaze direction. The file does not
+          contain the calibrated forward-camera pixel coordinates.
         </p>
 
         <pre><code>x_origin,y_origin,z_origin,x_direction,y_direction,z_direction</code></pre>
 
+        <p>
+          With an OpenCV camera window focused, use lowercase <code>q</code> to stop both
+          live cameras, Space to pause or resume, <code>C</code> to capture a
+          calibration point, <code>F</code> to toggle fixed/automatic sphere
+          adjustment, <code>G</code> to show or reset the grid, and <code>T</code>
+          to start or record an accuracy test. Use lowercase <code>e</code> to
+          toggle ellipse capture and <code>X</code> to clear captured ellipses.
+          Close the startup window to exit the application.
+        </p>
+
+        <p>
+          For recorded eye footage, use <code>Browse Video</code> to select an
+          <code>.mp4</code> or <code>.avi</code> file. This stops the live cameras
+          and saves an annotated video beside the source with <code>_tracked</code>
+          added to its filename. Live two-camera calibration and grid testing
+          require the camera streams.
+        </p>
       </article>
 
       <article class="tutorial-step">
-        <h3>Step 7: Use the vector in your own project</h3>
+        <h3>Step 9: Use the vector in your own project</h3>
 
         <p>
           Once the tracker is running, you can read <code>gaze_vector.txt</code>
           from another program or modify the Python script to send the gaze
-          vector directly to your application. This first setup gives you a raw
-          3D gaze direction. From there, you can calibrate it to a monitor, VR
-          headset, or another display surface for interaction experiments. 
+          vector directly to your application. Use <code>current_gaze_camera_point()</code>
+          inside the script for calibrated forward-camera pixel coordinates.
+          Mapping gaze to a monitor or VR display requires a separate calibration
+          for that surface. The text file has no timestamp or validity flag and
+          can retain the last values during a detection dropout; add those fields
+          if your application needs to distinguish fresh samples from old ones.
         </p>
 
         <p>
@@ -380,7 +470,7 @@
       </article>
 
       <article class="tutorial-step">
-        <h3>Step 8: Use AI to build your own gaze application</h3>
+        <h3>Step 10: Use AI to build your own gaze application</h3>
 
         <p>
           You can use an AI coding assistant or large language model to turn
