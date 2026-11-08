@@ -1233,3 +1233,26 @@ h1 {
   }
 
 }
+
+/* Mobile eye tracking hardware photo spaces; replace inner divs with images later. */
+.mobile-eye-tutorial .mobile-photo-slot {
+  margin: 1rem 0;
+  padding: 1.25rem;
+  border: 1px dashed #aaa;
+  border-radius: 8px;
+  text-align: center;
+}
+.mobile-eye-tutorial .mobile-photo-slot > div {
+  min-height: 110px;
+  display: grid;
+  place-items: center;
+  color: #555;
+}
+.mobile-eye-tutorial .mobile-photo-slot img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+}
+.mobile-eye-tutorial .mobile-photo-slot figcaption { font-size: 0.9rem; }
+.mobile-eye-tutorial pre { white-space: pre-wrap; overflow-wrap: anywhere; }
