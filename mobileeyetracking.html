@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WZ7XJMTZF5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WZ7XJMTZF5');
+  </script>
+  <script src="analytics.js" defer></script>
+
+  <title>DIY Mobile Eye Tracking on Orange Pi and Raspberry Pi | JEO Research</title>
+
+  <meta
+    name="description"
+    content="Build a DIY mobile eye tracking system with an Orange Pi or Raspberry Pi, two cameras, and a battery bank. Includes parts, Python setup, calibration, and performance results."
+  />
+
+  <link rel="canonical" href="https://www.jeoresearch.com/mobileeyetracking.html" />
+  <meta property="og:title" content="DIY Mobile Eye Tracking | JEO Research" />
+  <meta property="og:description" content="Build a portable eye tracker with two cameras, a Pi board, and open-source Python. Follow the parts, setup, and calibration guide." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.jeoresearch.com/mobileeyetracking.html" />
+  <meta property="og:image" content="https://www.jeoresearch.com/images/frontcamera.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://www.jeoresearch.com/mobileeyetracking.html#article",
+      "headline": "DIY Mobile Eye Tracking on Orange Pi and Raspberry Pi",
+      "description": "Build a portable DIY eye tracker with two USB cameras, a Pi board, a battery bank, and open-source Python software.",
+      "mainEntityOfPage": "https://www.jeoresearch.com/mobileeyetracking.html",
+      "author": {
+        "@type": "Person",
+        "name": "Jason Orlosky",
+        "url": "https://www.jeoresearch.com/aboutme.html"
+      },
+      "image": "https://www.jeoresearch.com/images/frontcamera.jpg",
+      "keywords": [
+        "mobile eye tracking",
+        "DIY eye tracking",
+        "Orange Pi eye tracker",
+        "Raspberry Pi eye tracker"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.jeoresearch.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "DIY Mobile Eye Tracking",
+          "item": "https://www.jeoresearch.com/mobileeyetracking.html"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html"><span class="brand-jeo">JEO</span><span class="brand-research">research</span></a>
+
+      <nav class="nav">
+        <div class="nav-dropdown">
+          <button class="nav-trigger" type="button">Home▼</button>
+          <div class="nav-menu">
+            <a href="index.html">Home Page</a>
+            <a href="aboutme.html">About Me</a>
+            <a href="news.html">Appearances</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-trigger" type="button">EyeTracking▼</button>
+          <div class="nav-menu">
+            <a href="eyecameras.html">Camera Comparison</a>
+            <a href="mobileeyetracking.html" aria-current="page">DIY Mobile Eye Tracker</a>
+            <a href="eyetracking.html">DIY Eye Tracker (Glasses)</a>
+            <a href="vrtracker.html">DIY Eye Tracker (VR)</a>
+            <a href="headgaze.html">DIY Head Tracker (Webcam)</a>
+            <a href="irsafety.html">Infrared Safety</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-trigger" type="button">ARVRLab▼</button>
+          <div class="nav-menu">
+            <a href="ccslab.html">Lab Page</a>
+            <a href="ccslab.html#apply">Apply</a>
+            <a href="ccslab/team.html">Members</a>
+            <a href="students/timelines.html">Timelines</a>
+            <a href="ccslab/xr.html">XR Research</a>
+            <a href="ccslab/intelligent.html">Intelligent Agents</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-trigger" type="button">AI&#9660;</button>
+          <div class="nav-menu">
+            <a href="aiguide.html">Guide for AI</a>
+          </div>
+        </div>
+        <a href="research.html">Publications</a>
+        <a href="https://github.com/JEOresearch">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page mobile-eye-tutorial">
+    <section class="hero tutorial-hero">
+      <div class="hero-text">
+        <h1>DIY Mobile Eye Tracking</h1>
+        <p class="eyebrow">By <a href="aboutme.html">Jason Orlosky, PhD</a></p>
+        <p class="intro">In this tutorial, I'll show you how to build a completely mobile eye tracker using an <a href="https://link.amazon/B0gIKYiWk" rel="sponsored" data-product="Orange Pi 4 Pro" data-category="Computer">Orange Pi 4 Pro</a> or <a href="https://link.amazon/B0bUMDLes" rel="sponsored" data-product="Raspberry Pi" data-category="Computer">Raspberry Pi</a>. I'll go through the parts, show how to set up and calibrate the cameras, and cover a few modifications that help you get better tracking results. The system can be mounted on glasses, head-worn displays, or helmet systems for projects like gaze analysis and eye-tracked costumes.</p>
+        <div class="profile-links" aria-label="Tutorial links">
+          <a href="https://github.com/JEOresearch/EyeTracker/blob/main/MobileEyeTrackerPi/Orlosky3DEyeTrackerFrontCameraPi.py">Download the Pi Python Script</a><span>|</span>
+          <a href="https://www.youtube.com/watch?v=zRpomExswYw">Camera Mounting and Calibration Video</a><span>|</span>
+          <a href="#parts">Parts List</a>
+        </div>
+      </div>
+      <div class="hero-image"><img src="images/mobiletracker.jpg" width="1000" height="563" alt="DIY mobile eye tracker with glasses-mounted cameras, Orange Pi board, battery bank, and pupil tracking inset" /></div>
+      <p class="channel-support">To help support this software and other open-source projects, please consider <a href="https://www.youtube.com/channel/UCS9oAlDpRkq14yxmpmw2jpA?sub_confirmation=1">subscribing</a> to or <a href="https://www.youtube.com/@jeoresearch/join">joining</a> my YouTube channel.</p>
+    </section>
+    <section class="section tutorial-steps">
+      <h2>Building the Mobile Eye Tracker</h2>
+      <article class="tutorial-step" id="parts">
+        <h3>Step 1: Gather the parts</h3>
+        <p>To get started, you'll need an IR eye camera, a front camera, a pair of glasses with the lenses removed, a Pi board, and a battery bank with a USB-C cable. The battery needs to supply <strong>5 volts at 5 amps</strong> for this setup; check the output of the port and cable you plan to use. Add an IR pass filter if you'll use the tracker near windows or sunlight.</p>
+        <div class="course-table-wrap"><table class="course-table">
+          <caption>Main parts for DIY mobile eye tracking </caption>
+          <thead><tr><th scope="col">Part</th><th scope="col">Approximate cost</th><th scope="col">Purpose</th></tr></thead>
+          <tbody>
+          <tr><th scope="row"><a href="https://amzn.to/41x8p2W" rel="sponsored noopener" data-product="GC0308 Eye Tracking Camera" data-category="Camera">GC0308 IR camera</a></th><td>$17</td><td>Eye view</td></tr>
+          <tr><th scope="row"><a href="https://link.amazon/B0fCFpDR4" rel="sponsored noopener" data-product="Front Camera" data-category="Camera">Front camera</a></th><td>$9</td><td>Scene view</td></tr>
+          <tr><th scope="row"><a href="https://link.amazon/B0gIKYiWk" rel="sponsored noopener" data-product="Orange Pi 4 Pro" data-category="Computer">Orange Pi 4 Pro</a></th><td>$65</td><td>Runs the tracker</td></tr>
+          <tr><th scope="row"><a href="https://link.amazon/B07PGCxDB" rel="sponsored noopener" data-product="5V 5A Battery Bank" data-category="Power">5V 5A battery bank</a></th><td>$50</td><td>Mobile power</td></tr>
+          <tr><th scope="row"><a href="https://amzn.to/4kHmjqI" rel="sponsored noopener" data-product="IR Filters" data-category="Accessory">IR filters (three-pack)</a></th><td>$14</td><td>Reduce visible-light reflections</td></tr>
+          </tbody>
+        </table></div>
+        <p></p>
+        <p>As needed: <a href="https://amzn.to/43SznVl" rel="sponsored" data-product="USB Extension Cables" data-category="Cable">USB extension cables ($10)</a>, <a href="https://amzn.to/4pi6wBn" rel="sponsored" data-product="Soft Wire Cabling" data-category="Mount">soft wire cabling ($9)</a> for eye camera attachment, and an <a href="https://amzn.to/4jCV4yy" rel="sponsored" data-product="Irradiance Meter" data-category="Safety">irradiance meter ($50)</a>. Review the <a href="irsafety.html">infrared safety guide</a> before using an illuminated camera close to your eye.</p>
+        <p>Orange Pi provided the board used in the video free of charge. No monetary compensation was received, and all opinions and testing results are my own.</p>
+        <div class="step-images"><figure><img src="images/frontcamera/gc0308.jpg" alt="GC0308 infrared eye camera for the mobile tracker" loading="lazy" /><figcaption>GC0308 IR eye camera.</figcaption></figure><figure><img src="images/frontcamera/boardcamera.jpg" alt="Small forward-facing board camera" loading="lazy" /><figcaption>Front camera for the scene view.</figcaption></figure><figure><img src="images/frontcamera/nolens.jpg" alt="Glasses frame with lenses removed" loading="lazy" /><figcaption>Glasses frame used to hold the cameras.</figcaption></figure><figure><img src="images/frontcamera/wire.jpg" alt="Soft wire for an adjustable camera mount" loading="lazy" /><figcaption>Soft wire for mounting.</figcaption></figure></div>
+      </article>
+      <article class="tutorial-step">
+        <h3>Step 2: Mount the cameras and secure the USB connections</h3>
+        <p>Wrap soft wire around the eye camera and its cable, then attach it to the glasses frame. Keep the mount firm but adjustable so you can position the camera until your whole eye is visible. Attach the front camera so it looks out in the same direction as your head. The <a href="eyetracking.html">original DIY eye tracking tutorial</a> and <a href="https://www.youtube.com/watch?v=zRpomExswYw">calibration video</a> show the mounting process.</p>
+        <div class="step-images"><figure><img src="images/frontcamera/camerasmounted.jpg" alt="Eye and scene cameras mounted on a glasses frame" loading="lazy" /><figcaption>Camera mounting example from the original glasses build.</figcaption></figure><figure><img src="images/frontcamera/eyeinview.jpg" alt="Mounted camera adjusted so the eye is fully in view" loading="lazy" /><figcaption>Adjust the eye camera before calibration.</figcaption></figure></div>
+        <p>One issue to watch for is the give and play in the Pi's USB ports. Movement can cause dropped frames. Bind the front and eye camera USB connector housings together with a zip tie, then use a rubber band to secure them to spacers or screws on the Pi. Leave enough slack in the camera cables so turning your head doesn't pull on the connectors.</p>
+      </article>
+      <article class="tutorial-step">
+        <h3>Step 3: Set up the Pi operating system and Python</h3>
+        <p>Install a desktop Linux image supported by your exact board on a microSD card, then boot the Pi with a monitor, keyboard, and mouse connected. Use Raspberry Pi OS with a desktop for the <a href="https://link.amazon/B0bUMDLes" rel="sponsored" data-product="Raspberry Pi" data-category="Computer">Raspberry Pi</a>, or a compatible desktop image for the <a href="https://link.amazon/B0gIKYiWk" rel="sponsored" data-product="Orange Pi 4 Pro" data-category="Computer">Orange Pi 4 Pro</a>. The tracker opens two OpenCV windows, so run it in a graphical desktop session.</p>
+        <p>On a Debian/Ubuntu-based image with these packages available, open a terminal and install Python, NumPy, GUI-enabled OpenCV, and the camera utilities:</p>
+        <pre><code>sudo apt update
+sudo apt install python3 python3-numpy python3-opencv v4l-utils</code></pre>
+        <p>Download <a href="https://github.com/JEOresearch/EyeTracker/blob/main/MobileEyeTrackerPi/Orlosky3DEyeTrackerFrontCameraPi.py">Orlosky3DEyeTrackerFrontCameraPi.py</a> into a project folder. You can open it in the board's text editor or a Python editor if you want to make changes. This version is standalone: it doesn't need Tkinter, OpenGL, or any of the desktop tracker's helper files. Avoid headless OpenCV packages, which cannot display the camera windows.</p>
+      </article>
+      <article class="tutorial-step">
+        <h3>Step 4: Find the cameras and run the tracker</h3>
+        <p>Connect both cameras and list the video devices:</p>
+        <pre><code>v4l2-ctl --list-devices</code></pre>
+        <p>Choose capture devices belonging to two different physical cameras. One USB camera can expose multiple video nodes, so two different device numbers alone aren't enough. Open a terminal in the script's folder and run:</p>
+        <pre><code>python3 Orlosky3DEyeTrackerFrontCameraPi.py --eye-camera 0 --front-camera 2</code></pre>
+        <p>Replace <code>0</code> and <code>2</code> with your camera indexes; device paths such as <code>/dev/video0</code> also work. The windows are titled <code>Pi Eye Tracker</code> and <code>Pi Front Camera</code>. With a camera window focused, press <code>1</code> to cycle the eye camera or <code>2</code> to cycle the front camera. With only two cameras, either key swaps their assignments.</p>
+        <p>Set the image orientation before calibrating. Press <code>E</code> to flip the eye image vertically, or set startup options such as <code>--eye-flip vertical --front-flip horizontal</code>. Each flip option accepts <code>none</code>, <code>vertical</code>, <code>horizontal</code>, or <code>both</code>. Changing cameras or flipping the eye image clears calibration.</p>
+      </article>
+      <article class="tutorial-step">
+        <h3>Step 5: Position the eye and build the eye model</h3>
+        <p>Adjust the mount until the eye is clearly visible in the eye window. The script finds the dark pupil region, fits an ellipse, and estimates the eye model as you look around. Give it a few moments and move your gaze in several directions until the model is ready. Try to keep the camera from moving relative to your eye.</p>
+        <div class="step-images"><figure><img src="images/frontcamera/eyevisible.jpg" alt="Eye visible in the original tracker camera view" loading="lazy" /><figcaption>Eye positioning example from the original tutorial.</figcaption></figure><figure><img src="images/frontcamera/thresholding.jpg" alt="Dark pupil region isolated for detection" loading="lazy" /><figcaption>Pupil detection example.</figcaption></figure><figure><img src="images/frontcamera/gazeray.jpg" alt="Estimated eye center and pupil ellipse with gaze ray" loading="lazy" /><figcaption>Eye model illustration from the original tutorial; the Pi interface differs.</figcaption></figure></div>
+        <p>If pupil detection is unreliable, first check the camera position, focus, and reflections. You can also adjust the pupil threshold offset at startup with <code>--threshold 15</code>; 15 is the default and accepted values run from 0 to 255. Press <code>X</code> to reset the model and calibration if you need to start over.</p>
+      </article>
+      <article class="tutorial-step">
+        <h3>Step 6: Calibrate gaze to the front camera</h3>
+        <p>In the front camera window, move your fingertip until it lines up with the red target in the image. Keep your head still, look at your actual fingertip, and press <code>C</code>. Repeat for all five targets in this order: <strong>center, top, bottom, left, right</strong>. Keep the camera window focused and the tracker unpaused when capturing points.</p>
+        <p>The first captured point freezes the eye model so all five samples use the same eye sphere. Once calibration finishes, the red dot follows your gaze in the scene view. If the script reports an invalid sample or a degenerate fit, follow the message and repeat calibration. </p>
+        <p>Press <code>C</code> after completion to restart calibration, then press it again to capture the first new point. <code>F</code> freezes or resumes eye model updates; resuming updates clears calibration. Recalibrate whenever the glasses or camera move. This maps gaze directions to front-camera pixels; a monitor, VR display, or a different surface needs its own calibration.</p>
+      </article>
+      <article class="tutorial-step">
+        <h3>Step 7: Record and use mobile eye tracking</h3>
+        <p>Once both views are working, power the Pi from the battery bank and secure the board and battery for mobile use. Keep cables supported so walking or turning doesn't move the camera mount. The program still needs a desktop session for its windows and keyboard controls; it does not automatically start or calibrate at boot.</p>
+        <p>Press <code>R</code> to start or stop paired AVI recordings of the annotated eye and scene views. Files are saved in the <code>recordings</code> folder beside the script, or use <code>--record-dir</code> to choose another folder. Recordings use a fixed 30 FPS timeline, separate from the live processing speed. Space pauses or resumes tracking; <code>Q</code>, Esc, or closing either camera window exits.</p>
+        <p>For your own gaze application, the Pi script keeps the eye result in memory and uses <code>Calibration.point(result)</code> for scene pixel coordinates. It does not write the desktop version's <code>gaze_vector.txt</code> file. You can modify the script to log timestamped gaze data or send it to a costume controller or another application.</p>
+      </article>
+      <article class="tutorial-step">
+        <h3>Step 8: Reduce reflections near sunlight</h3>
+        <p>If you plan to use the tracker near windows or sunlight, add an <a href="https://amzn.to/4kHmjqI" rel="sponsored" data-product="IR Filters" data-category="Accessory">IR pass filter</a> over the IR camera lens. It helps by filtering out much of the visible spectrum. It won't completely remove sunlight reflections, so check the pupil view again and adjust the camera angle if needed.</p>
+        
+        <p>This gives you a portable DIY eye tracking system!! Stay tuned for the stereo version and updates on a new infrared camera!</p>
+      </article>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>JEOresearch LLC</p>
+    <p>As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.</p>
+    <p>This website provides educational information about eye tracking and related technologies. Any hardware modifications, software, or procedures described are performed at the user's own risk. Always follow applicable manufacturer instructions and safety guidelines. All open-source software is released under the MIT License.</p>
+  </footer>
+</body>
+</html>
