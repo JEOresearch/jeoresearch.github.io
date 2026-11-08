@@ -1256,3 +1256,34 @@ h1 {
 }
 .mobile-eye-tutorial .mobile-photo-slot figcaption { font-size: 0.9rem; }
 .mobile-eye-tutorial pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+
+/* Size the image and its grid column together to avoid letterboxing. */
+.mobile-eye-tutorial .tutorial-hero {
+  grid-template-columns: minmax(0, 1fr) 355.24px;
+}
+.mobile-eye-tutorial .hero-image {
+  width: 100%;
+  max-width: none;
+  margin-top: 50px;
+  align-self: start;
+  justify-self: end;
+}
+.mobile-eye-tutorial .hero-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1000 / 563;
+}
+@media (max-width: 640px) {
+  .mobile-eye-tutorial .tutorial-hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .mobile-eye-tutorial .hero-image {
+    max-width: 355.24px;
+  }
+}
+
+.mobile-eye-tutorial .tutorial-hero > .profile-links {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: -20px;
+}
